@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MLCodeChallenge
 //
-//  Created by Alejandro Villa Cardenas - Ceiba Software on 19/07/21.
+//  Created by Alejandro Villa Cardenas
 //
 
 import UIKit
