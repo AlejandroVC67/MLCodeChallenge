@@ -14,5 +14,6 @@ struct Attribute: Codable {
         case valueName = "value_name"
     }
     
-    let name, valueName: String
+    let name: String
+    let valueName: String
 }

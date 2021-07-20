@@ -15,6 +15,7 @@ struct Installments: Codable {
     }
     
     let quantity: Int
-    let amount, rate: Double
+    let amount: Double
+    let rate: Double
     let currencyID: String
 }
