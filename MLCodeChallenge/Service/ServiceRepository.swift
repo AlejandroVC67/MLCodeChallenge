@@ -11,5 +11,5 @@ import Foundation
 typealias ItemsServiceResponse = (Result<[Items], ServiceError>) -> Void
 
 protocol ServiceRepository {
-    static func getContacts(completion: @escaping ItemsServiceResponse)
+    static func getItems(item: String, completion: @escaping ItemsServiceResponse)
 }
