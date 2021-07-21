@@ -10,7 +10,7 @@ import Foundation
 
 struct Product: Codable {
     enum CodingKeys: String, CodingKey {
-        case id, title, price, condition, thumbnail, installments, attributes
+        case id, title, price, condition, thumbnail
         case currencyID = "currency_id"
         case availableQuantity = "available_quantity"
     }
@@ -22,6 +22,4 @@ struct Product: Codable {
     let availableQuantity: Int?
     let condition: String
     let thumbnail: String
-    let installments: Installments?
-    let attributes: [Attribute]
 }

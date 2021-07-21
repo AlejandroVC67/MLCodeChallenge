@@ -13,6 +13,7 @@ enum ServiceError: Error, LocalizedError {
     case unableToParse
     case dataError
     case badRequest
+    case emptyResponse
     
     var errorDescription: String {
         switch self {
@@ -20,6 +21,7 @@ enum ServiceError: Error, LocalizedError {
         case .unableToParse: return "Unable to parse response"
         case .dataError: return "There is an unexpected problem with the data"
         case .badRequest: return "Unable to create the request"
+        case .emptyResponse: return "We could not find any products that match your search"
         }
     }
 }
