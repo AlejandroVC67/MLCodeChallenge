@@ -15,5 +15,5 @@ struct Attribute: Codable {
     }
     
     let name: String
-    let valueName: String
+    let valueName: String?
 }

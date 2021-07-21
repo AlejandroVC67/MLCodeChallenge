@@ -23,6 +23,8 @@
 		BC45B45126A739DD0030B0B4 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45026A739DD0030B0B4 /* HTTPMethods.swift */; };
 		BC45B45326A73B8D0030B0B4 /* ServiceRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45226A73B8D0030B0B4 /* ServiceRequestBuilder.swift */; };
 		BC45B45826A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45726A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift */; };
+		BC45B45C26A7C0C20030B0B4 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45B26A7C0C20030B0B4 /* Prediction.swift */; };
+		BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45D26A7C7A40030B0B4 /* SearchType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		BC45B45026A739DD0030B0B4 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		BC45B45226A73B8D0030B0B4 /* ServiceRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestBuilder.swift; sourceTree = "<group>"; };
 		BC45B45726A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestBuilderProtocol.swift; sourceTree = "<group>"; };
+		BC45B45B26A7C0C20030B0B4 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		BC45B45D26A7C7A40030B0B4 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +136,8 @@
 		BC45B44326A734410030B0B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC45B44A26A735E00030B0B4 /* Items.swift */,
-				BC45B44426A734500030B0B4 /* Product.swift */,
-				BC45B44626A7350E0030B0B4 /* Attribute.swift */,
-				BC45B44826A7354F0030B0B4 /* Installments.swift */,
+				BC45B45A26A74FBE0030B0B4 /* Prediction */,
+				BC45B45926A74FB30030B0B4 /* Items */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,8 +164,28 @@
 			children = (
 				BC45B45026A739DD0030B0B4 /* HTTPMethods.swift */,
 				BC45B45226A73B8D0030B0B4 /* ServiceRequestBuilder.swift */,
+				BC45B45D26A7C7A40030B0B4 /* SearchType.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BC45B45926A74FB30030B0B4 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BC45B44A26A735E00030B0B4 /* Items.swift */,
+				BC45B44426A734500030B0B4 /* Product.swift */,
+				BC45B44626A7350E0030B0B4 /* Attribute.swift */,
+				BC45B44826A7354F0030B0B4 /* Installments.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		BC45B45A26A74FBE0030B0B4 /* Prediction */ = {
+			isa = PBXGroup;
+			children = (
+				BC45B45B26A7C0C20030B0B4 /* Prediction.swift */,
+			);
+			path = Prediction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +290,10 @@
 			files = (
 				BC45B44B26A735E00030B0B4 /* Items.swift in Sources */,
 				BC45B44726A7350E0030B0B4 /* Attribute.swift in Sources */,
+				BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */,
 				BC45B44926A7354F0030B0B4 /* Installments.swift in Sources */,
 				BC45B45826A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift in Sources */,
+				BC45B45C26A7C0C20030B0B4 /* Prediction.swift in Sources */,
 				BC45B45326A73B8D0030B0B4 /* ServiceRequestBuilder.swift in Sources */,
 				BC45B44F26A739190030B0B4 /* ServiceFacade.swift in Sources */,
 				BC45B41526A613700030B0B4 /* ViewController.swift in Sources */,
