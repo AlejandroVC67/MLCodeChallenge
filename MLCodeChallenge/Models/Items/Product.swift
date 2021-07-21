@@ -13,17 +13,15 @@ struct Product: Codable {
         case id, title, price, condition, thumbnail, installments, attributes
         case currencyID = "currency_id"
         case availableQuantity = "available_quantity"
-        case categoryID = "category_id"
     }
     
     let id: String
     let title: String
-    let price: Int
+    let price: Double
     let currencyID: String?
-    let availableQuantity: Int
+    let availableQuantity: Int?
     let condition: String
     let thumbnail: String
     let installments: Installments?
     let attributes: [Attribute]
-    let categoryID: String
 }

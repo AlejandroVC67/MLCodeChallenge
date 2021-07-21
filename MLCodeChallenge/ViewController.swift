@@ -11,10 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .red
+        
+        ServiceFacade.searchItem(query: "ifon") { response in
+            switch response {
+            case .success(let items): print(items)
+            case .failure(let error): print(error)
+            }
+        }
     }
-
-
 }
 
