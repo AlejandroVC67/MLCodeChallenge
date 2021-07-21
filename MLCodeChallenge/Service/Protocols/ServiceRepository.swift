@@ -9,11 +9,11 @@
 import Foundation
 
 typealias ItemsServiceResponse = (Result<Items, ServiceError>) -> Void
+typealias CategoriesServiceResponse = (Result<[Category], ServiceError>) -> Void
 
 protocol ServiceRepository {
     static func searchItem(query: String, completion: @escaping ItemsServiceResponse)
-    static func predictSearch(query: String, completion: @escaping ItemsServiceResponse)
-    static func categorySearch(query: String, completion: @escaping ItemsServiceResponse)
+    static func categoriesSearch(completion: @escaping CategoriesServiceResponse)
     
     static func execute<T>(request: URLRequest, completion: @escaping (Result<T, ServiceError>) -> Void) where T: Codable
 }
