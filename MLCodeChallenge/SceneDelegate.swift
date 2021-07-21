@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         self.window = UIWindow(windowScene: scene)
-        let navigationController = UINavigationController.init(rootViewController: ViewController())
+        let presenter = SearchProductPresenter()
+        let searchProductViewController = SearchProductViewController(presenter: presenter)
+        let navigationController = UINavigationController.init(rootViewController: searchProductViewController)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }

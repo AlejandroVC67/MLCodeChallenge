@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC45B41126A613700030B0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41026A613700030B0B4 /* AppDelegate.swift */; };
 		BC45B41326A613700030B0B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41226A613700030B0B4 /* SceneDelegate.swift */; };
-		BC45B41526A613700030B0B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41426A613700030B0B4 /* ViewController.swift */; };
+		BC45B41526A613700030B0B4 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41426A613700030B0B4 /* SearchProductViewController.swift */; };
 		BC45B41A26A6137D0030B0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC45B41926A6137D0030B0B4 /* Assets.xcassets */; };
 		BC45B41D26A6137D0030B0B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC45B41B26A6137D0030B0B4 /* LaunchScreen.storyboard */; };
 		BC45B42826A6137D0030B0B4 /* MLCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B42726A6137D0030B0B4 /* MLCodeChallengeTests.swift */; };
@@ -26,6 +26,8 @@
 		BC45B45C26A7C0C20030B0B4 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45B26A7C0C20030B0B4 /* Prediction.swift */; };
 		BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45D26A7C7A40030B0B4 /* SearchType.swift */; };
 		BC45B46126A88E330030B0B4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46026A88E330030B0B4 /* Category.swift */; };
+		BC45B46426A897E50030B0B4 /* SearchProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */; };
+		BC45B46626A899EA0030B0B4 /* SearchProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,7 @@
 		BC45B40D26A613700030B0B4 /* MLCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC45B41026A613700030B0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC45B41226A613700030B0B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BC45B41426A613700030B0B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC45B41426A613700030B0B4 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
 		BC45B41926A6137D0030B0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC45B41C26A6137D0030B0B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC45B41E26A6137D0030B0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 		BC45B45B26A7C0C20030B0B4 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		BC45B45D26A7C7A40030B0B4 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		BC45B46026A88E330030B0B4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductPresenter.swift; sourceTree = "<group>"; };
+		BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +107,11 @@
 		BC45B40F26A613700030B0B4 /* MLCodeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				BC45B46226A891410030B0B4 /* Screens */,
 				BC45B44326A734410030B0B4 /* Models */,
 				BC45B44026A61AD40030B0B4 /* Service */,
 				BC45B41026A613700030B0B4 /* AppDelegate.swift */,
 				BC45B41226A613700030B0B4 /* SceneDelegate.swift */,
-				BC45B41426A613700030B0B4 /* ViewController.swift */,
 				BC45B41926A6137D0030B0B4 /* Assets.xcassets */,
 				BC45B41B26A6137D0030B0B4 /* LaunchScreen.storyboard */,
 				BC45B41E26A6137D0030B0B4 /* Info.plist */,
@@ -197,6 +201,16 @@
 				BC45B46026A88E330030B0B4 /* Category.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		BC45B46226A891410030B0B4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BC45B41426A613700030B0B4 /* SearchProductViewController.swift */,
+				BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */,
+				BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,12 +322,14 @@
 				BC45B45326A73B8D0030B0B4 /* ServiceRequestBuilder.swift in Sources */,
 				BC45B46126A88E330030B0B4 /* Category.swift in Sources */,
 				BC45B44F26A739190030B0B4 /* ServiceFacade.swift in Sources */,
-				BC45B41526A613700030B0B4 /* ViewController.swift in Sources */,
+				BC45B41526A613700030B0B4 /* SearchProductViewController.swift in Sources */,
+				BC45B46426A897E50030B0B4 /* SearchProductPresenter.swift in Sources */,
 				BC45B41126A613700030B0B4 /* AppDelegate.swift in Sources */,
 				BC45B44526A734500030B0B4 /* Product.swift in Sources */,
 				BC45B44D26A737B80030B0B4 /* ServiceError.swift in Sources */,
 				BC45B41326A613700030B0B4 /* SceneDelegate.swift in Sources */,
 				BC45B44226A61AE60030B0B4 /* ServiceRepository.swift in Sources */,
+				BC45B46626A899EA0030B0B4 /* SearchProductDataSource.swift in Sources */,
 				BC45B45126A739DD0030B0B4 /* HTTPMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
