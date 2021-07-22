@@ -13,4 +13,5 @@ extension UIColor {
     static var background: UIColor? = UIColor(named: "background")
     static var mainContent: UIColor? = UIColor(named: "mainContent")
     static var secundaryContent: UIColor? = UIColor(named: "secundaryContent")
+    static var black: UIColor? = UIColor(named: "black")
 }

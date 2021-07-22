@@ -16,6 +16,7 @@ final class SearchProductViewController: UIViewController {
             static let title = "searchproductviewcontroller.navbar.title".localized
             static let barTintColor: UIColor? = .mainColor
             static let isTranslucent = false
+            static let titleAttributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.black as Any]
         }
         
         enum SearchBar {
@@ -25,7 +26,8 @@ final class SearchProductViewController: UIViewController {
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.backgroundColor = Constants.backgroundColor
+        searchBar.barTintColor = Constants.backgroundColor
+        searchBar.backgroundImage = UIImage()
         searchBar.placeholder = Constants.SearchBar.placeholder
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
@@ -70,6 +72,7 @@ final class SearchProductViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = Constants.Navbar.barTintColor
         navigationController?.navigationBar.isTranslucent = Constants.Navbar.isTranslucent
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.titleTextAttributes = Constants.Navbar.titleAttributes
         view.backgroundColor = Constants.backgroundColor
     }
     
