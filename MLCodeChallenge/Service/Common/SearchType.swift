@@ -12,7 +12,7 @@ enum SearchType {
     case product(String)
     case prediction(String)
     case category(String)
-    case cateogries
+    case categories
     
     var path: String {
         switch self {
@@ -21,8 +21,10 @@ enum SearchType {
         case .prediction(let value):
             return String(format: "https://api.mercadolibre.com/sites/MLA/domain_discovery/search?q=$%@", value)
         case .category(let value):
-            return String(format: "https://api.mercadolibre.com/sites/MLA/search?category=%@", value)
-        case .cateogries:
+            return String(format: "https://api.mercadolibre.com/categories/%@", value)
+        case .categories:
+            //"https://api.mercadolibre.com/sites/MLA/categories" bueno
+            //https://api.mercadolibre.com/sites/MLA/categories/all dict
             return "https://api.mercadolibre.com/sites/MLA/categories"
         }
     }

@@ -9,6 +9,9 @@
 import UIKit
 
 final class SearchProductDataSource: NSObject {
+    private enum Constants {
+        static let sectionTitle = "searchproductviewcontroller.table.section.title".localized
+    }
     
     private var categories: [Category] = []
     
@@ -18,6 +21,10 @@ final class SearchProductDataSource: NSObject {
 }
 
 extension SearchProductDataSource: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Constants.sectionTitle
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
