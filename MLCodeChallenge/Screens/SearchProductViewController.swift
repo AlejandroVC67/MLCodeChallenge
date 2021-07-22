@@ -22,6 +22,10 @@ final class SearchProductViewController: UIViewController {
         enum SearchBar {
             static let placeholder = "searchbar.placeholder".localized
         }
+        
+        enum TableView {
+            static let topPadding: CGFloat = 10
+        }
     }
     
     private lazy var searchBar: UISearchBar = {
@@ -85,7 +89,7 @@ final class SearchProductViewController: UIViewController {
     }
     
     private func addTableViewConstraints() {
-        let constraints = [tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
+        let constraints = [tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: Constants.TableView.topPadding),
                            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)]
