@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  MLCodeChallenge
+
+  Created by Alejandro Villa Cardenas
+  Copyright © 2021  . All rights reserved.
+*/
+
+// MARK: - SearchBar Component
+searchbar.placeholder = "¡Busca lo que quieras!";
+
+
+// MARK: - SearchProductViewController
+searchproductviewcontroller.navbar.title = "Busca Productos";
+searchproductviewcontroller.table.section.title = "Escoge alguna de nuestras categorías";
+
