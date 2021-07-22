@@ -30,37 +30,30 @@ struct ServiceFacade: ServiceRepository {
     }
     
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse) {
+        let dispatchGroup = DispatchGroup()
         guard let request = getRequest(httpMethod: .get, searchType: .categories) else {
             completion(.failure(.badRequest))
             return
         }
-        
-//        execute(request: request) { (response: Result<[String: Category], ServiceError>) in
-//            switch response {
-//            case .success(let categories):
-//
-//                let result = Array(categories.values)
-//                completion(.success(result))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-        
+
         execute(request: request) { (response: Result<[Category], ServiceError>) in
             var result: [Category] = []
             switch response {
             case .success(let categories):
                 categories.forEach {
+                    dispatchGroup.enter()
                     searchCategory(id: $0.id) { response in
                         switch response {
                         case .success(let category):
                             result.append(category)
+                            dispatchGroup.leave()
                         case .failure(let error):
                             completion(.failure(error))
+                            dispatchGroup.leave()
                         }
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                dispatchGroup.notify(queue: .main) {
                     completion(.success(result))
                 }
             case .failure(let error):
