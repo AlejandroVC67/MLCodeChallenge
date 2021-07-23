@@ -30,9 +30,12 @@ extension SearchProductDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.reuseIdentifier, for: indexPath) as? CategoryTableViewCell else {
+            return UITableViewCell()
+        }
         let category = categories[indexPath.row]
-        cell.textLabel?.text = category.name
+        
+        cell.configureCell(category: category.name, imagePath: category.picture)
         return cell
     }
 }
