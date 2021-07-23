@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SearchProductDataWorkerDelegate: AnyObject {
+    func showEmptyView()
+    func removeEmptyView()
+}
+
 final class SearchProductDataWorker: NSObject {
     private enum Constants {
         static let sectionTitle = "searchproductviewcontroller.table.section.title".localized
@@ -15,6 +20,7 @@ final class SearchProductDataWorker: NSObject {
     
     private var categories: [Category] = []
     private var storedCategories: [Category] = []
+    weak var delegate: SearchProductDataWorkerDelegate?
     
     func update(categories: [Category]) {
         self.categories = categories
@@ -24,9 +30,11 @@ final class SearchProductDataWorker: NSObject {
     func filterCategories(basedOn query: String) {
         if query.isEmpty {
             categories = storedCategories
+            delegate?.removeEmptyView()
             return
         }
         categories = storedCategories.filter { $0.name.contains(query) }
+        categories.isEmpty ? delegate?.showEmptyView() : delegate?.removeEmptyView()
     }
 }
 

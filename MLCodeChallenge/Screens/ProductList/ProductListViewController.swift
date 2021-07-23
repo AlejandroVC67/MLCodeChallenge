@@ -10,7 +10,14 @@ import UIKit
 
 final class ProductListViewController: UIViewController {
     
-    init() {
+    private let listWorker: ProductListWorker
+    private let presenter: ProductListPresenter
+    private let logger: MLAnalyticsProtocol.Type
+    
+    init(presenter: ProductListPresenter, listWorker: ProductListWorker, logger: MLAnalyticsProtocol.Type) {
+        self.listWorker = listWorker
+        self.logger = logger
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
