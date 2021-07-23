@@ -6,13 +6,14 @@
   Copyright © 2021  . All rights reserved.
 */
 
-// MARK: - SearchBar Component
-searchbar.placeholder = "¡Busca productos o filtra las categorías!";
-
 // MARK: - Empty View
 emptyview.errorlabel.text = "No encontramos esa categoría en este momento :(";
 
 // MARK: - SearchProductViewController
 searchproductviewcontroller.navbar.title = "Busca Productos";
 searchproductviewcontroller.table.section.title = "Escoge alguna de nuestras categorías";
+searchproductviewcontroller.searchbar.placeholder = "¡Busca productos o filtra las categorías!";
+
+// MARK: - ProductListViewController
+productlistviewcontroller.searchbar.placeholder = "Filtra tú producto por nombre";
 

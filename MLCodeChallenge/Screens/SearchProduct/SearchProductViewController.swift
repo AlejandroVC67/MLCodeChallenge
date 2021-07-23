@@ -20,7 +20,7 @@ final class SearchProductViewController: UIViewController {
         }
         
         enum SearchBar {
-            static let placeholder = "searchbar.placeholder".localized
+            static let placeholder = "searchproductviewcontroller.searchbar.placeholder".localized
         }
         
         enum TableView {
@@ -28,10 +28,8 @@ final class SearchProductViewController: UIViewController {
         }
     }
     
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.barTintColor = Constants.backgroundColor
-        searchBar.backgroundImage = UIImage()
+    private lazy var searchBar: MLSearchBar = {
+        let searchBar = MLSearchBar()
         searchBar.delegate = presenter
         searchBar.placeholder = Constants.SearchBar.placeholder
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -128,9 +126,7 @@ extension SearchProductViewController: SearchProductDelegate {
         let logger = MLAnalyticsFactory.getLogger(provider: .native)
         let worker = ProductListWorker(items: items)
         let productListViewController = ProductListViewController(presenter: presenter, listWorker: worker, logger: logger)
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(productListViewController, animated: true)
-        }
+        self.navigationController?.pushViewController(productListViewController, animated: true)
     }
     
     func reloadTable(categories: [Category]) {
