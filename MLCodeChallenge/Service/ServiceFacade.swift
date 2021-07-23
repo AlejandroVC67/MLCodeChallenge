@@ -62,6 +62,22 @@ struct ServiceFacade: ServiceRepository {
         }
     }
     
+    static func searchProducts(by categoryId: String, completion: @escaping ItemsServiceResponse) {
+        guard let request = getRequest(httpMethod: .get, searchType: .categoryProduct(categoryId)) else {
+            completion(.failure(.badRequest))
+            return
+        }
+        
+        execute(request: request) { (response: Result<Items, ServiceError>) in
+            switch response {
+            case .success(let items):
+                completion(.success(items))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     static func searchCategory(id: String, completion: @escaping (Result<Category, ServiceError>) -> Void) {
         guard let request = getRequest(httpMethod: .get, searchType: .category(id)) else {
             completion(.failure(.badRequest))

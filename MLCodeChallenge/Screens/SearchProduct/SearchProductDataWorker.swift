@@ -11,6 +11,7 @@ import UIKit
 protocol SearchProductDataWorkerDelegate: AnyObject {
     func showEmptyView()
     func removeEmptyView()
+    func checkProducts(of category: Category)
 }
 
 final class SearchProductDataWorker: NSObject {
@@ -55,5 +56,12 @@ extension SearchProductDataWorker: UITableViewDataSource {
         
         cell.configureCell(category: category.name, imagePath: category.picture)
         return cell
+    }
+}
+
+extension SearchProductDataWorker: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        delegate?.checkProducts(of: category)
     }
 }

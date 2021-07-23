@@ -42,6 +42,19 @@ final class SearchProductPresenter: NSObject {
             }
         }
     }
+    
+    func searchProduct(by category: Category) {
+        ServiceFacade.searchProducts(by: category.id) { [weak self] response in
+            switch response {
+            case .success(let products):
+                DispatchQueue.main.async {
+                    self?.delegate?.show(items: products)
+                }
+            case .failure(let error):
+                self?.delegate?.handleError(error: error.errorDescription)
+            }
+        }
+    }
 }
 
 extension SearchProductPresenter: UISearchBarDelegate {
@@ -54,11 +67,5 @@ extension SearchProductPresenter: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         delegate?.filterCategories(query: searchText)
-    }
-}
-
-extension SearchProductPresenter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
     }
 }
