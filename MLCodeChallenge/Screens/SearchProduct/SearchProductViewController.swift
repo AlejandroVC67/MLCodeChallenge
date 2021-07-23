@@ -57,6 +57,7 @@ final class SearchProductViewController: UIViewController {
           indicator.color = .blue
           return indicator
       }()
+    private var errorView: EmptyView?
     
     private let presenter: SearchProductPresenter
     private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
@@ -67,6 +68,7 @@ final class SearchProductViewController: UIViewController {
         self.logger = analyticsLogger
         super.init(nibName: nil, bundle: nil)
         self.presenter.delegate = self
+        self.tableWorker.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -122,7 +124,13 @@ extension SearchProductViewController: SearchProductDelegate {
     }
     
     func show(items: Items) {
-        // TODO
+        let presenter = ProductListPresenter()
+        let logger = MLAnalyticsFactory.getLogger(provider: .native)
+        let worker = ProductListWorker(items: items)
+        let productListViewController = ProductListViewController(presenter: presenter, listWorker: worker, logger: logger)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(productListViewController, animated: true)
+        }
     }
     
     func reloadTable(categories: [Category]) {
@@ -134,5 +142,32 @@ extension SearchProductViewController: SearchProductDelegate {
     
     func handleError(error: String) {
         logger.log(message: error, type: .error)
+    }
+}
+
+extension SearchProductViewController: SearchProductDataWorkerDelegate {
+    func removeEmptyView() {
+        if errorView != nil {
+            errorView?.removeFromSuperview()
+            errorView = nil
+        }
+    }
+    
+    func showEmptyView() {
+        guard errorView == nil else {
+            return
+        }
+        errorView = EmptyView()
+        guard let errorView = errorView else {
+            return
+        }
+        self.view.addSubview(errorView)
+        
+        let constraints = [errorView.topAnchor.constraint(equalTo: tableView.topAnchor),
+                           errorView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+                           errorView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+                           errorView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)]
+        
+        NSLayoutConstraint.activate(constraints)
     }
 }

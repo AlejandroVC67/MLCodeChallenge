@@ -9,6 +9,8 @@
 // MARK: - SearchBar Component
 searchbar.placeholder = "¡Busca productos o filtra las categorías!";
 
+// MARK: - Empty View
+emptyview.errorlabel.text = "No encontramos esa categoría en este momento :(";
 
 // MARK: - SearchProductViewController
 searchproductviewcontroller.navbar.title = "Busca Productos";
