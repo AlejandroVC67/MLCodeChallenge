@@ -21,9 +21,3 @@ extension ProductListPresenter: UISearchBarDelegate {
         delegate?.filterProduct(by: searchText)
     }
 }
-
-extension ProductListPresenter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
-    }
-}
