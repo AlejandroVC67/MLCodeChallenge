@@ -32,6 +32,7 @@ final class SearchProductViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.barTintColor = Constants.backgroundColor
         searchBar.backgroundImage = UIImage()
+        searchBar.delegate = presenter
         searchBar.placeholder = Constants.SearchBar.placeholder
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
@@ -41,14 +42,16 @@ final class SearchProductViewController: UIViewController {
         let table = UITableView()
         table.backgroundColor = Constants.backgroundColor
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.dataSource = dataSource
+        table.dataSource = tableWorker
+        table.delegate = presenter
+        table.allowsSelection = false
         table.estimatedRowHeight = UITableView.automaticDimension
         table.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         return table
     }()
     
     private let presenter: SearchProductPresenter
-    private let dataSource: SearchProductDataSource = SearchProductDataSource()
+    private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
     
     init(presenter: SearchProductPresenter) {
         self.presenter = presenter
@@ -101,12 +104,19 @@ final class SearchProductViewController: UIViewController {
 }
 
 extension SearchProductViewController: SearchProductDelegate {
+    func filterCategories(query: String) {
+        tableWorker.filterCategories(basedOn: query)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func show(items: Items) {
         // TODO
     }
     
     func reloadTable(categories: [Category]) {
-        dataSource.update(categories: categories)
+        tableWorker.update(categories: categories)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

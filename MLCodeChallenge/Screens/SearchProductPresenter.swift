@@ -6,16 +6,17 @@
 //  Copyright © 2021  . All rights reserved.
 //
 
-import Foundation
+import UIKit
 import OSLog
 
 protocol SearchProductDelegate: AnyObject {
     func show(items: Items)
     func reloadTable(categories: [Category])
     func handleError(error: String)
+    func filterCategories(query: String)
 }
 
-final class SearchProductPresenter {
+final class SearchProductPresenter: NSObject {
     
     weak var delegate: SearchProductDelegate?
     
@@ -39,5 +40,24 @@ final class SearchProductPresenter {
                 self?.delegate?.handleError(error: error.errorDescription)
             }
         }
+    }
+}
+
+extension SearchProductPresenter: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text else {
+            return
+        }
+        searchProduct(query: query)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        delegate?.filterCategories(query: searchText)
+    }
+}
+
+extension SearchProductPresenter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
     }
 }

@@ -7,7 +7,7 @@
 */
 
 // MARK: - SearchBar Component
-searchbar.placeholder = "¡Busca lo que quieras!";
+searchbar.placeholder = "¡Busca productos o filtra las categorías!";
 
 
 // MARK: - SearchProductViewController
