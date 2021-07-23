@@ -6,8 +6,24 @@
 //  Copyright © 2021  . All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol ProductListDelegate: AnyObject {
+    func filterProduct(by query: String)
+}
 
 final class ProductListPresenter: NSObject {
-    
+    weak var delegate: ProductListDelegate?
+}
+
+extension ProductListPresenter: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        delegate?.filterProduct(by: searchText)
+    }
+}
+
+extension ProductListPresenter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+    }
 }

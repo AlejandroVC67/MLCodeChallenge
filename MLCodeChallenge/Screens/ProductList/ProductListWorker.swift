@@ -6,7 +6,7 @@
 //  Copyright © 2021  . All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ProductListWorker: NSObject {
     
@@ -17,4 +17,15 @@ final class ProductListWorker: NSObject {
     }
 }
 
-
+extension ProductListWorker: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let product = items.results[indexPath.row]
+        cell.textLabel?.text = product.title
+        return cell
+    }
+}

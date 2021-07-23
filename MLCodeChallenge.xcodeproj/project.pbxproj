@@ -43,6 +43,7 @@
 		BCD7106126AB21B400EEB0B8 /* ProductListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106026AB21B400EEB0B8 /* ProductListWorker.swift */; };
 		BCD7106326AB229800EEB0B8 /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106226AB229800EEB0B8 /* ProductListPresenter.swift */; };
 		BCD7106626AB26A900EEB0B8 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106526AB26A900EEB0B8 /* EmptyView.swift */; };
+		BCD7106826AB322B00EEB0B8 /* MLSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106726AB322B00EEB0B8 /* MLSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		BCD7106026AB21B400EEB0B8 /* ProductListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListWorker.swift; sourceTree = "<group>"; };
 		BCD7106226AB229800EEB0B8 /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
 		BCD7106526AB26A900EEB0B8 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		BCD7106726AB322B00EEB0B8 /* MLSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD7106526AB26A900EEB0B8 /* EmptyView.swift */,
+				BCD7106726AB322B00EEB0B8 /* MLSearchBar.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD7106826AB322B00EEB0B8 /* MLSearchBar.swift in Sources */,
 				BC45B44B26A735E00030B0B4 /* Items.swift in Sources */,
 				BC45B44726A7350E0030B0B4 /* Attribute.swift in Sources */,
 				BCD7105326AB167000EEB0B8 /* ProductListViewController.swift in Sources */,

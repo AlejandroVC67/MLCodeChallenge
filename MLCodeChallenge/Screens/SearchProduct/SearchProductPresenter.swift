@@ -23,7 +23,9 @@ final class SearchProductPresenter: NSObject {
         ServiceFacade.searchItem(query: query) { [weak self] response in
             switch response {
             case .success(let products):
-                self?.delegate?.show(items: products)
+                DispatchQueue.main.async {
+                    self?.delegate?.show(items: products)
+                }
             case .failure(let error):
                 self?.delegate?.handleError(error: error.errorDescription)
             }
