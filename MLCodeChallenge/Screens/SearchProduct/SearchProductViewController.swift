@@ -41,8 +41,7 @@ final class SearchProductViewController: UIViewController {
         table.backgroundColor = Constants.backgroundColor
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = tableWorker
-        table.delegate = presenter
-        table.allowsSelection = false
+        table.delegate = tableWorker
         table.estimatedRowHeight = UITableView.automaticDimension
         table.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         return table
@@ -142,6 +141,10 @@ extension SearchProductViewController: SearchProductDelegate {
 }
 
 extension SearchProductViewController: SearchProductDataWorkerDelegate {
+    func checkProducts(of category: Category) {
+        presenter.searchProduct(by: category)
+    }
+    
     func removeEmptyView() {
         if errorView != nil {
             errorView?.removeFromSuperview()

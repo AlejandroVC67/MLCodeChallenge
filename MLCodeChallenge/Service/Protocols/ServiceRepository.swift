@@ -14,6 +14,8 @@ typealias CategoriesServiceResponse = (Result<[Category], ServiceError>) -> Void
 protocol ServiceRepository {
     static func searchItem(query: String, completion: @escaping ItemsServiceResponse)
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse)
+    static func searchCategory(id: String, completion: @escaping (Result<Category, ServiceError>) -> Void)
+    static func searchProducts(by categoryId: String, completion: @escaping ItemsServiceResponse)
     
     static func execute<T>(request: URLRequest, completion: @escaping (Result<T, ServiceError>) -> Void) where T: Codable
 }
