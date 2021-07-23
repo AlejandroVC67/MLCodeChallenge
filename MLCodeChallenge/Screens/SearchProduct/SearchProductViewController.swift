@@ -50,11 +50,21 @@ final class SearchProductViewController: UIViewController {
         return table
     }()
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+          let indicator = UIActivityIndicatorView()
+          indicator.translatesAutoresizingMaskIntoConstraints = false
+          indicator.style = .large
+          indicator.color = .blue
+          return indicator
+      }()
+    
     private let presenter: SearchProductPresenter
     private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
+    private let logger: MLAnalyticsProtocol.Type
     
-    init(presenter: SearchProductPresenter) {
+    init(presenter: SearchProductPresenter, analyticsLogger: MLAnalyticsProtocol.Type) {
         self.presenter = presenter
+        self.logger = analyticsLogger
         super.init(nibName: nil, bundle: nil)
         self.presenter.delegate = self
     }
@@ -123,6 +133,6 @@ extension SearchProductViewController: SearchProductDelegate {
     }
     
     func handleError(error: String) {
-        // TODO
+        logger.log(message: error, type: .error)
     }
 }
