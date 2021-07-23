@@ -42,6 +42,8 @@ final class SearchProductViewController: UIViewController {
         table.backgroundColor = Constants.backgroundColor
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = dataSource
+        table.estimatedRowHeight = UITableView.automaticDimension
+        table.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         return table
     }()
     
