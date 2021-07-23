@@ -35,7 +35,7 @@ final class ProductListViewController: UIViewController {
         table.backgroundColor = Constants.backgroundColor
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = listWorker
-        table.delegate = presenter
+        table.delegate = listWorker
         table.allowsSelection = false
         table.estimatedRowHeight = UITableView.automaticDimension
         return table
@@ -50,6 +50,7 @@ final class ProductListViewController: UIViewController {
         self.logger = logger
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        self.presenter.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -83,5 +84,14 @@ final class ProductListViewController: UIViewController {
                            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)]
         
         NSLayoutConstraint.activate(constraints)
+    }
+}
+
+extension ProductListViewController: ProductListDelegate {
+    func filterProduct(by query: String) {
+        listWorker.filterProducts(by: query)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
