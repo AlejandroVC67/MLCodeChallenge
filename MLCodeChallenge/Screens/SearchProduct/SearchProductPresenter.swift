@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OSLog
 
 protocol SearchProductDelegate: AnyObject {
     func show(items: Items)

@@ -18,9 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         self.window = UIWindow(windowScene: scene)
-        let presenter = SearchProductPresenter()
-        let searchProductViewController = SearchProductViewController(presenter: presenter)
-        let navigationController = UINavigationController.init(rootViewController: searchProductViewController)
+        
+        let navigationController = UINavigationController.init(rootViewController: setupRootViewController())
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
@@ -52,7 +51,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+private extension SceneDelegate {
+    func setupRootViewController() -> SearchProductViewController {
+        let presenter = SearchProductPresenter()
+        let analyticsLogger = MLAnalyticsFactory.getLogger(provider: .native)
+        let searchProductViewController = SearchProductViewController(presenter: presenter, analyticsLogger: analyticsLogger)
+        return searchProductViewController
+    }
 }
 
