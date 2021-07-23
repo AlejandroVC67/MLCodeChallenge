@@ -27,7 +27,7 @@
 		BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45D26A7C7A40030B0B4 /* SearchType.swift */; };
 		BC45B46126A88E330030B0B4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46026A88E330030B0B4 /* Category.swift */; };
 		BC45B46426A897E50030B0B4 /* SearchProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */; };
-		BC45B46626A899EA0030B0B4 /* SearchProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */; };
+		BC45B46626A899EA0030B0B4 /* SearchProductDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46526A899EA0030B0B4 /* SearchProductDataWorker.swift */; };
 		BC45B46926A91DDC0030B0B4 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46826A91DDC0030B0B4 /* UIViewExtension.swift */; };
 		BC45B46B26A9213D0030B0B4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46A26A9213D0030B0B4 /* UIColorExtension.swift */; };
 		BC45B46D26A924DD0030B0B4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46C26A924DD0030B0B4 /* StringExtension.swift */; };
@@ -72,7 +72,7 @@
 		BC45B45D26A7C7A40030B0B4 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		BC45B46026A88E330030B0B4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductPresenter.swift; sourceTree = "<group>"; };
-		BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductDataSource.swift; sourceTree = "<group>"; };
+		BC45B46526A899EA0030B0B4 /* SearchProductDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductDataWorker.swift; sourceTree = "<group>"; };
 		BC45B46826A91DDC0030B0B4 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BC45B46A26A9213D0030B0B4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BC45B46C26A924DD0030B0B4 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			children = (
 				BC45B41426A613700030B0B4 /* SearchProductViewController.swift */,
 				BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */,
-				BC45B46526A899EA0030B0B4 /* SearchProductDataSource.swift */,
+				BC45B46526A899EA0030B0B4 /* SearchProductDataWorker.swift */,
 				BC45B47026A92E8B0030B0B4 /* CategoryTableViewCell.swift */,
 			);
 			path = Screens;
@@ -365,7 +365,7 @@
 				BC45B47126A92E8B0030B0B4 /* CategoryTableViewCell.swift in Sources */,
 				BC45B41326A613700030B0B4 /* SceneDelegate.swift in Sources */,
 				BC45B44226A61AE60030B0B4 /* ServiceRepository.swift in Sources */,
-				BC45B46626A899EA0030B0B4 /* SearchProductDataSource.swift in Sources */,
+				BC45B46626A899EA0030B0B4 /* SearchProductDataWorker.swift in Sources */,
 				BC45B45126A739DD0030B0B4 /* HTTPMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

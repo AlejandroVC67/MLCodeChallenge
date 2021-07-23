@@ -8,19 +8,29 @@
 
 import UIKit
 
-final class SearchProductDataSource: NSObject {
+final class SearchProductDataWorker: NSObject {
     private enum Constants {
         static let sectionTitle = "searchproductviewcontroller.table.section.title".localized
     }
     
     private var categories: [Category] = []
+    private var storedCategories: [Category] = []
     
     func update(categories: [Category]) {
         self.categories = categories
+        self.storedCategories = categories
+    }
+    
+    func filterCategories(basedOn query: String) {
+        if query.isEmpty {
+            categories = storedCategories
+            return
+        }
+        categories = storedCategories.filter { $0.name.contains(query) }
     }
 }
 
-extension SearchProductDataSource: UITableViewDataSource {
+extension SearchProductDataWorker: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return Constants.sectionTitle
     }
