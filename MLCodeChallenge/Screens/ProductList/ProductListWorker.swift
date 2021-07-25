@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProductListWorkerDelegate: AnyObject {
+    func checkDetail(of productId: String)
+}
+
 final class ProductListWorker: NSObject {
     
     private enum Constants {
@@ -18,6 +22,7 @@ final class ProductListWorker: NSObject {
     
     private var products: [Product] = []
     private let storedProducts: [Product]
+    weak var delegate: ProductListWorkerDelegate?
     
     init(items: Items) {
         self.products = items.results
@@ -58,5 +63,6 @@ extension ProductListWorker: UITableViewDataSource {
 extension ProductListWorker: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]
+        delegate?.checkDetail(of: product.id)
     }
 }

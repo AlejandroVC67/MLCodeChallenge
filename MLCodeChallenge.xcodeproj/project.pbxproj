@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC09EF0326ADFA3100F44501 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09EF0226ADFA3100F44501 /* ProductDetailViewController.swift */; };
 		BC45B41126A613700030B0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41026A613700030B0B4 /* AppDelegate.swift */; };
 		BC45B41326A613700030B0B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41226A613700030B0B4 /* SceneDelegate.swift */; };
 		BC45B41526A613700030B0B4 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B41426A613700030B0B4 /* SearchProductViewController.swift */; };
@@ -23,7 +24,6 @@
 		BC45B45126A739DD0030B0B4 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45026A739DD0030B0B4 /* HTTPMethods.swift */; };
 		BC45B45326A73B8D0030B0B4 /* ServiceRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45226A73B8D0030B0B4 /* ServiceRequestBuilder.swift */; };
 		BC45B45826A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45726A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift */; };
-		BC45B45C26A7C0C20030B0B4 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45B26A7C0C20030B0B4 /* Prediction.swift */; };
 		BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B45D26A7C7A40030B0B4 /* SearchType.swift */; };
 		BC45B46126A88E330030B0B4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46026A88E330030B0B4 /* Category.swift */; };
 		BC45B46426A897E50030B0B4 /* SearchProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */; };
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC09EF0226ADFA3100F44501 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		BC45B40D26A613700030B0B4 /* MLCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC45B41026A613700030B0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC45B41226A613700030B0B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		BC45B45026A739DD0030B0B4 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		BC45B45226A73B8D0030B0B4 /* ServiceRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestBuilder.swift; sourceTree = "<group>"; };
 		BC45B45726A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestBuilderProtocol.swift; sourceTree = "<group>"; };
-		BC45B45B26A7C0C20030B0B4 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		BC45B45D26A7C7A40030B0B4 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		BC45B46026A88E330030B0B4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BC45B46326A897E50030B0B4 /* SearchProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductPresenter.swift; sourceTree = "<group>"; };
@@ -120,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC09EF0126ADFA1A00F44501 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BC09EF0226ADFA3100F44501 /* ProductDetailViewController.swift */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
 		BC45B40426A613700030B0B4 = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				BC45B45F26A88E210030B0B4 /* Category */,
-				BC45B45A26A74FBE0030B0B4 /* Prediction */,
 				BC45B45926A74FB30030B0B4 /* Items */,
 			);
 			path = Models;
@@ -224,14 +231,6 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		BC45B45A26A74FBE0030B0B4 /* Prediction */ = {
-			isa = PBXGroup;
-			children = (
-				BC45B45B26A7C0C20030B0B4 /* Prediction.swift */,
-			);
-			path = Prediction;
-			sourceTree = "<group>";
-		};
 		BC45B45F26A88E210030B0B4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD7106426AB269900EEB0B8 /* Common */,
+				BC09EF0126ADFA1A00F44501 /* ProductDetail */,
 				BCD7105126AB164C00EEB0B8 /* ProductList */,
 				BCD7105026AB163A00EEB0B8 /* SearchProduct */,
 			);
@@ -415,13 +415,13 @@
 			files = (
 				BCD7106826AB322B00EEB0B8 /* MLSearchBar.swift in Sources */,
 				BC45B44B26A735E00030B0B4 /* Items.swift in Sources */,
+				BC09EF0326ADFA3100F44501 /* ProductDetailViewController.swift in Sources */,
 				BC45B44726A7350E0030B0B4 /* Attribute.swift in Sources */,
 				BCD7105326AB167000EEB0B8 /* ProductListViewController.swift in Sources */,
 				BCD7105626AB19FD00EEB0B8 /* MLAnalyticsProtocol.swift in Sources */,
 				BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */,
 				BC45B44926A7354F0030B0B4 /* Installments.swift in Sources */,
 				BC45B45826A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift in Sources */,
-				BC45B45C26A7C0C20030B0B4 /* Prediction.swift in Sources */,
 				BCD7104D26AA37D700EEB0B8 /* UITableViewCellExtension.swift in Sources */,
 				BCD7106126AB21B400EEB0B8 /* ProductListWorker.swift in Sources */,
 				BC45B45326A73B8D0030B0B4 /* ServiceRequestBuilder.swift in Sources */,

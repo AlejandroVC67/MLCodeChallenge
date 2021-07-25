@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class ProductListViewController: UIViewController {
     
@@ -36,7 +37,6 @@ final class ProductListViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = listWorker
         table.delegate = listWorker
-        table.allowsSelection = false
         table.estimatedRowHeight = UITableView.automaticDimension
         table.register(ProductListTableViewCell.self, forCellReuseIdentifier: ProductListTableViewCell.reuseIdentifier)
         return table
@@ -52,6 +52,7 @@ final class ProductListViewController: UIViewController {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         self.presenter.delegate = self
+        self.listWorker.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -95,5 +96,13 @@ extension ProductListViewController: ProductListDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension ProductListViewController: ProductListWorkerDelegate {
+    func checkDetail(of productId: String) {
+        
+        let vc = UIHostingController(rootView: ProductDetailViewController())
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
