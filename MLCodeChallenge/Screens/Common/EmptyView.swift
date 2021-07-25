@@ -10,6 +10,7 @@ import UIKit
 
 class EmptyView: UIView {
     
+    // MARK: - Constants
     private enum Constants {
         static let backgroundColor: UIColor? = .background
         
@@ -23,6 +24,7 @@ class EmptyView: UIView {
         }
     }
     
+    // MARK: - Variables
     private lazy var errorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +36,7 @@ class EmptyView: UIView {
         return label
     }()
     
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         setupView()
@@ -43,6 +46,7 @@ class EmptyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private functions
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = Constants.backgroundColor

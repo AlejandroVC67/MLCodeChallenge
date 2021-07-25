@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ The multiple types of Service Error that can be generated while creating and executing a service call.
+ */
 enum ServiceError: Error, LocalizedError {
     case badUrl
     case unableToParse

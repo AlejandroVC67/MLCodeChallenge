@@ -11,6 +11,7 @@ import SwiftUI
 
 final class ProductListViewController: UIViewController {
     
+    // MARK: - Constants
     private enum Constants {
         static let backgroundColor: UIColor? = .background
         
@@ -23,6 +24,7 @@ final class ProductListViewController: UIViewController {
         }
     }
     
+    // MARK: - Variables
     private lazy var searchBar: MLSearchBar = {
         let searchBar = MLSearchBar()
         searchBar.delegate = presenter
@@ -46,6 +48,7 @@ final class ProductListViewController: UIViewController {
     private let presenter: ProductListPresenter
     private let logger: MLAnalyticsProtocol.Type
     
+    // MARK: - Init
     init(presenter: ProductListPresenter, listWorker: ProductListWorker, logger: MLAnalyticsProtocol.Type) {
         self.listWorker = listWorker
         self.logger = logger
@@ -64,6 +67,7 @@ final class ProductListViewController: UIViewController {
         setupView()
     }
     
+    // MARK: - Private functions
     private func setupView() {
         view.addSubviews([searchBar, tableView])
         view.backgroundColor = Constants.backgroundColor
@@ -90,6 +94,7 @@ final class ProductListViewController: UIViewController {
     }
 }
 
+//MARK: - ProductListDelegate
 extension ProductListViewController: ProductListDelegate {
     func filterProduct(by query: String) {
         listWorker.filterProducts(by: query)
@@ -99,6 +104,7 @@ extension ProductListViewController: ProductListDelegate {
     }
 }
 
+//MARK: - ProductListWorkerDelegate
 extension ProductListViewController: ProductListWorkerDelegate {
     func checkDetail(of productId: String) {
         

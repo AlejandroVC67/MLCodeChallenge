@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - SearchProductDelegate
 protocol SearchProductDelegate: AnyObject {
     func show(items: Items)
     func reloadTable(categories: [Category])
@@ -16,9 +17,10 @@ protocol SearchProductDelegate: AnyObject {
 }
 
 final class SearchProductPresenter: NSObject {
-    
+    // MARK: - Variables
     weak var delegate: SearchProductDelegate?
     
+    // MARK: - Internal functions
     func searchProduct(query: String) {
         ServiceFacade.searchItem(query: query) { [weak self] response in
             switch response {
@@ -57,6 +59,7 @@ final class SearchProductPresenter: NSObject {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension SearchProductPresenter: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else {

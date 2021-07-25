@@ -9,12 +9,13 @@
 import UIKit
 
 final class MLSearchBar: UISearchBar {
-    
+    // MARK: - Constants
     private enum Constants {
         static let backgroundColor: UIColor? = .background
         
     }
     
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         setupView()
@@ -24,6 +25,7 @@ final class MLSearchBar: UISearchBar {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private functions
     private func setupView() {
         barTintColor = Constants.backgroundColor
         backgroundImage = UIImage()

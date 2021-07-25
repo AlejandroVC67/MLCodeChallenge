@@ -10,6 +10,7 @@ import UIKit
 
 final class CategoryTableViewCell: UITableViewCell {
     
+    // MARK: - Constants
     private enum Constants {
         static let background: UIColor? = .background
         
@@ -25,6 +26,7 @@ final class CategoryTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Variables
     private lazy var thumbnailImageView: UIImageView = {
         let thumbnail = UIImageView(image: Constants.ThumbnailImageView.image)
         thumbnail.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +43,7 @@ final class CategoryTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Internal functions
     func configureCell(category: String, imagePath: String?) {
         contentView.backgroundColor = Constants.background
         categoryLabel.text = category
@@ -51,6 +54,7 @@ final class CategoryTableViewCell: UITableViewCell {
         categoryLabelConstraints()
     }
     
+    // MARK: - Private functions
     private func thumbnailImageViewConstraints() {
         let constraints = [thumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
                            thumbnailImageView.widthAnchor.constraint(equalToConstant: Constants.ThumbnailImageView.width),

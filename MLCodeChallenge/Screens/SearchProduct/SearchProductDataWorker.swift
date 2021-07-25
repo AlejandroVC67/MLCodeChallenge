@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - SearchProductDataWorkerDelegate
 protocol SearchProductDataWorkerDelegate: AnyObject {
     func showEmptyView()
     func removeEmptyView()
@@ -15,14 +16,18 @@ protocol SearchProductDataWorkerDelegate: AnyObject {
 }
 
 final class SearchProductDataWorker: NSObject {
+    
+    // MARK: - Constants
     private enum Constants {
         static let sectionTitle = "searchproductviewcontroller.table.section.title".localized
     }
     
+    // MARK: - Variables
     private var categories: [Category] = []
     private var storedCategories: [Category] = []
     weak var delegate: SearchProductDataWorkerDelegate?
     
+    // MARK: - Internal functions
     func update(categories: [Category]) {
         self.categories = categories
         self.storedCategories = categories
@@ -39,6 +44,7 @@ final class SearchProductDataWorker: NSObject {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension SearchProductDataWorker: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return Constants.sectionTitle
@@ -59,6 +65,7 @@ extension SearchProductDataWorker: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension SearchProductDataWorker: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = categories[indexPath.row]
