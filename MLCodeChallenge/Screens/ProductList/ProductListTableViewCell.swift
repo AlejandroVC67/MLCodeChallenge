@@ -15,7 +15,7 @@ final class ProductListTableViewCell: UITableViewCell {
         
         enum ThumbnailImageView {
             static let image = UIImage(named: "categoryPlaceholder")
-            static let width: CGFloat = 100
+            static let dimensions: CGFloat = 100
             static let padding: UIEdgeInsets = .init(top: 10, left: 10, bottom: -10, right: 0)
         }
         
@@ -49,6 +49,7 @@ final class ProductListTableViewCell: UITableViewCell {
         let thumbnail = UIImageView(image: Constants.ThumbnailImageView.image)
         thumbnail.translatesAutoresizingMaskIntoConstraints = false
         thumbnail.clipsToBounds = true
+        thumbnail.contentMode = .scaleAspectFill
         return thumbnail
     }()
     
@@ -104,10 +105,11 @@ final class ProductListTableViewCell: UITableViewCell {
     
     private func addThumbnailImageViewConstraints() {
         let constraints = [thumbnailImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: Constants.ThumbnailImageView.padding.top),
-                           thumbnailImageView.widthAnchor.constraint(equalToConstant: Constants.ThumbnailImageView.width),
-                           thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: thumbnailImageView.aspectRatio),
+                           thumbnailImageView.widthAnchor.constraint(equalToConstant: Constants.ThumbnailImageView.dimensions),
+                           thumbnailImageView.heightAnchor.constraint(equalToConstant: Constants.ThumbnailImageView.dimensions),
                            thumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.ThumbnailImageView.padding.left),
-                           thumbnailImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: Constants.ThumbnailImageView.padding.bottom)]
+                           thumbnailImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: Constants.ThumbnailImageView.padding.bottom),
+                           thumbnailImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)]
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -123,7 +125,7 @@ final class ProductListTableViewCell: UITableViewCell {
     private func addConditionLabelConstraints() {
         let constraints = [conditionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.ConditionLabel.padding.top),
                            conditionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-                           nameLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)]
+                           conditionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)]
 
         NSLayoutConstraint.activate(constraints)
     }
