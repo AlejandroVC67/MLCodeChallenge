@@ -8,27 +8,32 @@
 
 import UIKit
 
+// MARK: - ProductListWorkerDelegate
 protocol ProductListWorkerDelegate: AnyObject {
     func checkDetail(of productId: String)
 }
 
 final class ProductListWorker: NSObject {
     
+    // MARK: - Constants
     private enum Constants {
         static let priceFormat = "productlistviewcontroller.productlist.cell.price".localized
         static let quantityFormat = "productlistviewcontroller.productlist.cell.quantity".localized
         static let conditionFormat = "productlistviewcontroller.productlist.cell.condition".localized
     }
     
+    // MARK: - Variables
     private var products: [Product] = []
     private let storedProducts: [Product]
     weak var delegate: ProductListWorkerDelegate?
     
+    // MARK: - Init
     init(items: Items) {
         self.products = items.results
         self.storedProducts = items.results
     }
     
+    // MARK: - Internal functions
     func filterProducts(by query: String) {
         if query.isEmpty {
             products = storedProducts
@@ -39,6 +44,7 @@ final class ProductListWorker: NSObject {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ProductListWorker: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -60,6 +66,7 @@ extension ProductListWorker: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension ProductListWorker: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]

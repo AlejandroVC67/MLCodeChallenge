@@ -9,6 +9,7 @@ import UIKit
 
 final class SearchProductViewController: UIViewController {
 
+    // MARK: - Constants
     private enum Constants {
         static let backgroundColor: UIColor? = .background
         
@@ -28,6 +29,7 @@ final class SearchProductViewController: UIViewController {
         }
     }
     
+    // MARK: - Variables
     private lazy var searchBar: MLSearchBar = {
         let searchBar = MLSearchBar()
         searchBar.delegate = presenter
@@ -53,6 +55,7 @@ final class SearchProductViewController: UIViewController {
     private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
     private let logger: MLAnalyticsProtocol.Type
     
+    // MARK: - Init
     init(presenter: SearchProductPresenter, analyticsLogger: MLAnalyticsProtocol.Type) {
         self.presenter = presenter
         self.logger = analyticsLogger
@@ -71,6 +74,7 @@ final class SearchProductViewController: UIViewController {
         setupView()
     }
     
+    // MARK: - Private functions
     private func setupView() {
         setupNavbar()
         view.addSubviews([searchBar, tableView])
@@ -105,6 +109,7 @@ final class SearchProductViewController: UIViewController {
     }
 }
 
+// MARK: - SearchProductDelegate
 extension SearchProductViewController: SearchProductDelegate {
     func filterCategories(query: String) {
         tableWorker.filterCategories(basedOn: query)
@@ -133,6 +138,7 @@ extension SearchProductViewController: SearchProductDelegate {
     }
 }
 
+// MARK: - SearchProductDataWorkerDelegate
 extension SearchProductViewController: SearchProductDataWorkerDelegate {
     func checkProducts(of category: Category) {
         presenter.searchProduct(by: category)

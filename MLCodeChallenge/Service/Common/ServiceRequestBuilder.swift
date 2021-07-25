@@ -8,15 +8,26 @@
 
 import Foundation
 
+/**
+ This class is in charge of building the service request.
+ - How to use:
+    First call the configureURL(searchType: SearchType) this will internally use the path that relates to the specific flow you want to use and format it.
+    
+    Then call the configure(httpMethod: HTTPMethods) indicating if you want to get or post information.
+    
+    Finally call the build function and you will have the request created and ready to use.
+ */
 struct ServiceRequestBuilder: ServiceRequestBuilderProtocol {
+    // MARK: - Variables
     static var request: URLRequest?
     
-    private enum Constants {
-        static let baseUrl = "https://api.mercadolibre.com/sites/MLA/search?q=%@"
-        static let predictSearchUrl = "https://api.mercadolibre.com/sites/MLA/domain_discovery/search?q=$%@"
-        static let categorySearchUrl = "https://api.mercadolibre.com/sites/MLA/search?category=%@"
-    }
+    // MARK: - Internal functions
     
+    /**
+     Call this function to configure the URL that you need to use for your service call
+     - Parameters:
+        - searchType: This indicates the flow that you want to use. It could be categories, products, product detail, etc.
+     */
     static func configureURL(searchType: SearchType) {
         guard let path = searchType.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
@@ -27,10 +38,18 @@ struct ServiceRequestBuilder: ServiceRequestBuilderProtocol {
         Self.request = URLRequest(url: url)
     }
     
+    /**
+     Call this function to configure the HTTP Method of the request.
+     - Parameters:
+        - httpMethod: The method that you want to use in your request
+     */
     static func configure(httpMethod: HTTPMethods) {
         Self.request?.httpMethod = httpMethod.rawValue
     }
     
+    /**
+     Returns a request with the specified url and http method provided.
+     */
     static func build() -> URLRequest? {
         return Self.request
     }

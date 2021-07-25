@@ -10,6 +10,7 @@ import UIKit
 
 final class ProductListTableViewCell: UITableViewCell {
     
+    // MARK: - Constants
     private enum Constants {
         static let background: UIColor? = .background
         
@@ -45,6 +46,7 @@ final class ProductListTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Variables
     private lazy var thumbnailImageView: UIImageView = {
         let thumbnail = UIImageView(image: Constants.ThumbnailImageView.image)
         thumbnail.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +88,7 @@ final class ProductListTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Internal functions
     func configureCell(name: String, price: String, quantity: String, condition: String, thumbnailPath: String) {
         contentView.backgroundColor = Constants.background
         thumbnailImageView.downloadImage(from: thumbnailPath)
@@ -103,6 +106,7 @@ final class ProductListTableViewCell: UITableViewCell {
         addPriceLabelConstraints()
     }
     
+    // MARK: - Private functions
     private func addThumbnailImageViewConstraints() {
         let constraints = [thumbnailImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: Constants.ThumbnailImageView.padding.top),
                            thumbnailImageView.widthAnchor.constraint(equalToConstant: Constants.ThumbnailImageView.dimensions),

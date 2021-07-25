@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ HTTP methods used for service calls
+ - Examples:
+    - GET
+    - POST
+    - PUT
+ */
 enum HTTPMethods: String {
     case get = "GET"
     case post = "POST"
