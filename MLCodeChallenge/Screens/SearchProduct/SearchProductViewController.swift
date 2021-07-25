@@ -47,15 +47,8 @@ final class SearchProductViewController: UIViewController {
         return table
     }()
     
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-          let indicator = UIActivityIndicatorView()
-          indicator.translatesAutoresizingMaskIntoConstraints = false
-          indicator.style = .large
-          indicator.color = .blue
-          return indicator
-      }()
     private var errorView: EmptyView?
-    
+
     private let presenter: SearchProductPresenter
     private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
     private let logger: MLAnalyticsProtocol.Type
