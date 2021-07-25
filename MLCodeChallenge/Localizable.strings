@@ -16,4 +16,7 @@ searchproductviewcontroller.searchbar.placeholder = "¡Busca productos o filtra 
 
 // MARK: - ProductListViewController
 productlistviewcontroller.searchbar.placeholder = "Filtra tú producto por nombre";
+productlistviewcontroller.productlist.cell.price = "Price: %@ %.2f";
+productlistviewcontroller.productlist.cell.quantity = "Quantity: %d";
+productlistviewcontroller.productlist.cell.condition = "Condition: %@";
 

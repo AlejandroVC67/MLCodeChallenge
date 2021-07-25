@@ -38,6 +38,7 @@ final class ProductListViewController: UIViewController {
         table.delegate = listWorker
         table.allowsSelection = false
         table.estimatedRowHeight = UITableView.automaticDimension
+        table.register(ProductListTableViewCell.self, forCellReuseIdentifier: ProductListTableViewCell.reuseIdentifier)
         return table
     }()
     
@@ -64,6 +65,7 @@ final class ProductListViewController: UIViewController {
     
     private func setupView() {
         view.addSubviews([searchBar, tableView])
+        view.backgroundColor = Constants.backgroundColor
         
         addSearchBarConstraints()
         addTableViewConstraints()
