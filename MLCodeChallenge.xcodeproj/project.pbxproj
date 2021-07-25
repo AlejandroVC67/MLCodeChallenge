@@ -44,6 +44,7 @@
 		BCD7106326AB229800EEB0B8 /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106226AB229800EEB0B8 /* ProductListPresenter.swift */; };
 		BCD7106626AB26A900EEB0B8 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106526AB26A900EEB0B8 /* EmptyView.swift */; };
 		BCD7106826AB322B00EEB0B8 /* MLSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106726AB322B00EEB0B8 /* MLSearchBar.swift */; };
+		BCD7106A26AB4D1B00EEB0B8 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7106926AB4D1B00EEB0B8 /* ProductListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		BCD7106226AB229800EEB0B8 /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
 		BCD7106526AB26A900EEB0B8 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		BCD7106726AB322B00EEB0B8 /* MLSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSearchBar.swift; sourceTree = "<group>"; };
+		BCD7106926AB4D1B00EEB0B8 /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				BCD7105226AB167000EEB0B8 /* ProductListViewController.swift */,
 				BCD7106026AB21B400EEB0B8 /* ProductListWorker.swift */,
 				BCD7106226AB229800EEB0B8 /* ProductListPresenter.swift */,
+				BCD7106926AB4D1B00EEB0B8 /* ProductListTableViewCell.swift */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				BC45B44526A734500030B0B4 /* Product.swift in Sources */,
 				BC45B46926A91DDC0030B0B4 /* UIViewExtension.swift in Sources */,
 				BCD7105A26AB1CB600EEB0B8 /* AnalyticsProvider.swift in Sources */,
+				BCD7106A26AB4D1B00EEB0B8 /* ProductListTableViewCell.swift in Sources */,
 				BC45B44D26A737B80030B0B4 /* ServiceError.swift in Sources */,
 				BC45B47126A92E8B0030B0B4 /* CategoryTableViewCell.swift in Sources */,
 				BC45B41326A613700030B0B4 /* SceneDelegate.swift in Sources */,

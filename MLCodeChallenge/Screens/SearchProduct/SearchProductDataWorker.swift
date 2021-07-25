@@ -34,7 +34,7 @@ final class SearchProductDataWorker: NSObject {
             delegate?.removeEmptyView()
             return
         }
-        categories = storedCategories.filter { $0.name.contains(query) }
+        categories = storedCategories.filter { $0.name.localizedCaseInsensitiveContains(query) }
         categories.isEmpty ? delegate?.showEmptyView() : delegate?.removeEmptyView()
     }
 }
