@@ -40,6 +40,10 @@
 		BC45B46F26A925070030B0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC45B46E26A925070030B0B4 /* Localizable.strings */; };
 		BC45B47126A92E8B0030B0B4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B47026A92E8B0030B0B4 /* CategoryTableViewCell.swift */; };
 		BC6F925C26B19B7C00E9D2E5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */; };
+		BC6F926126B1DBC100E9D2E5 /* ProductServiceFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F926026B1DBC100E9D2E5 /* ProductServiceFacadeTests.swift */; };
+		BC6F926426B1ECF600E9D2E5 /* ProductServiceFacadeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F926326B1ECF600E9D2E5 /* ProductServiceFacadeMock.swift */; };
+		BC6F926726B2010D00E9D2E5 /* SearchProductPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F926626B2010D00E9D2E5 /* SearchProductPresenterTests.swift */; };
+		BC6F926926B202BC00E9D2E5 /* CategoryServiceFacadeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F926826B202BC00E9D2E5 /* CategoryServiceFacadeMock.swift */; };
 		BCD7104D26AA37D700EEB0B8 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7104C26AA37D700EEB0B8 /* UITableViewCellExtension.swift */; };
 		BCD7104F26AA387300EEB0B8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7104E26AA387300EEB0B8 /* UIImageViewExtension.swift */; };
 		BCD7105326AB167000EEB0B8 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7105226AB167000EEB0B8 /* ProductListViewController.swift */; };
@@ -102,6 +106,10 @@
 		BC45B46E26A925070030B0B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC45B47026A92E8B0030B0B4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		BC6F926026B1DBC100E9D2E5 /* ProductServiceFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceFacadeTests.swift; sourceTree = "<group>"; };
+		BC6F926326B1ECF600E9D2E5 /* ProductServiceFacadeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceFacadeMock.swift; sourceTree = "<group>"; };
+		BC6F926626B2010D00E9D2E5 /* SearchProductPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductPresenterTests.swift; sourceTree = "<group>"; };
+		BC6F926826B202BC00E9D2E5 /* CategoryServiceFacadeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceFacadeMock.swift; sourceTree = "<group>"; };
 		BCD7104C26AA37D700EEB0B8 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		BCD7104E26AA387300EEB0B8 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		BCD7105226AB167000EEB0B8 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +212,9 @@
 		BC45B42626A6137D0030B0B4 /* MLCodeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				BC6F926526B2002400E9D2E5 /* Presenters */,
+				BC6F926226B1ECE700E9D2E5 /* Mocks */,
+				BC6F925D26B1DB7C00E9D2E5 /* Services */,
 				BC45B42726A6137D0030B0B4 /* MLCodeChallengeTests.swift */,
 				BC45B42926A6137D0030B0B4 /* Info.plist */,
 			);
@@ -296,6 +307,31 @@
 				BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BC6F925D26B1DB7C00E9D2E5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F926026B1DBC100E9D2E5 /* ProductServiceFacadeTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BC6F926226B1ECE700E9D2E5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F926326B1ECF600E9D2E5 /* ProductServiceFacadeMock.swift */,
+				BC6F926826B202BC00E9D2E5 /* CategoryServiceFacadeMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		BC6F926526B2002400E9D2E5 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F926626B2010D00E9D2E5 /* SearchProductPresenterTests.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		BCD7105026AB163A00EEB0B8 /* SearchProduct */ = {
@@ -498,7 +534,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6F926926B202BC00E9D2E5 /* CategoryServiceFacadeMock.swift in Sources */,
+				BC6F926426B1ECF600E9D2E5 /* ProductServiceFacadeMock.swift in Sources */,
 				BC45B42826A6137D0030B0B4 /* MLCodeChallengeTests.swift in Sources */,
+				BC6F926726B2010D00E9D2E5 /* SearchProductPresenterTests.swift in Sources */,
+				BC6F926126B1DBC100E9D2E5 /* ProductServiceFacadeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

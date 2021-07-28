@@ -17,3 +17,9 @@ struct Items: Codable {
         case results
     }
 }
+
+extension Items: Equatable {
+    static func == (lhs: Items, rhs: Items) -> Bool {
+        return lhs.results == rhs.results
+    }
+}
