@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Attribute: Codable {
+struct Attribute: Codable, Hashable {
     enum CodingKeys: String, CodingKey {
         case name
         case valueName = "value_name"

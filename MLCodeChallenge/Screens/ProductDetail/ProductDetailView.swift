@@ -33,15 +33,18 @@ struct ProductDetailView: View {
                     ProductDetailGallery(images: presenter.productImages)
                         .frame(height: Constants.ProductDetailGallery.height)
                     MLTitleText(text: presenter.getProductName())
+                        .lineLimit(0)
                 }
                 ProductDetailItemView(text: presenter.getProductCondition())
                 ProductDetailItemView(text: presenter.getProductQuantity())
                 ProductDetailItemView(text: presenter.getProductPrice())
                 MLTitleText(text: Constants.caracteristicas)
-                List {
-                    Text("hola").foregroundColor(.blue)
+                ForEach(presenter.getProductAttributes(), id: \.self) { attribute in
+                    VStack {
+                        Text(attribute.name)
+                        Text(attribute.valueName ?? "")
+                    }
                 }
-                Spacer()
             }
         }
     }
