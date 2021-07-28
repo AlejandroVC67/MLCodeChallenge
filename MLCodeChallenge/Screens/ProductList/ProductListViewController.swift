@@ -44,6 +44,8 @@ final class ProductListViewController: UIViewController {
         return table
     }()
     
+    private var errorView: EmptyView?
+    
     private let listWorker: ProductListWorker
     private let presenter: ProductListPresenter
     private let logger: MLAnalyticsProtocol.Type
@@ -106,6 +108,31 @@ extension ProductListViewController: ProductListDelegate {
 
 //MARK: - ProductListWorkerDelegate
 extension ProductListViewController: ProductListWorkerDelegate {
+    func removeEmptyView() {
+        if errorView != nil {
+            errorView?.removeFromSuperview()
+            errorView = nil
+        }
+    }
+    
+    func showEmptyView() {
+        guard errorView == nil else {
+            return
+        }
+        errorView = EmptyView()
+        guard let errorView = errorView else {
+            return
+        }
+        self.view.addSubview(errorView)
+        
+        let constraints = [errorView.topAnchor.constraint(equalTo: tableView.topAnchor),
+                           errorView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+                           errorView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+                           errorView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)]
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     func checkDetail(of productId: String) {
         let presenter = ProductDetailPresenter(productId: productId, serviceProvider: ProductServiceFacade.self)
         let vc = UIHostingController(rootView: ProductDetailView(presenter: presenter))

@@ -11,6 +11,8 @@ import UIKit
 // MARK: - ProductListWorkerDelegate
 protocol ProductListWorkerDelegate: AnyObject {
     func checkDetail(of productId: String)
+    func showEmptyView()
+    func removeEmptyView()
 }
 
 final class ProductListWorker: NSObject {
@@ -37,10 +39,12 @@ final class ProductListWorker: NSObject {
     func filterProducts(by query: String) {
         if query.isEmpty {
             products = storedProducts
+            delegate?.removeEmptyView()
             return
         }
         
         products = storedProducts.filter { $0.title.localizedCaseInsensitiveContains(query) }
+        products.isEmpty ? delegate?.showEmptyView() : delegate?.removeEmptyView()
     }
 }
 
