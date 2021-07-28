@@ -50,7 +50,8 @@ struct ProductDetailView: View {
 
 struct ProductDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        let presenter = ProductDetailPresenter(productId: "MLA775138148", serviceProvider: ProductServiceFacade.self)
+        let provider = MLAnalyticsFactory.getLogger(provider: .native)
+        let presenter = ProductDetailPresenter(productId: "MLA775138148", serviceProvider: ProductServiceFacade.self, logger: provider)
         ProductDetailView(presenter: presenter)
     }
 }

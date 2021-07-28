@@ -20,10 +20,12 @@ class ProductDetailPresenter: ObservableObject {
     @Published private(set) var productImages: [UIImage] = []
     
     private let serviceProvider: ProductServiceRepository.Type
+    private var logger: MLAnalyticsProtocol.Type
     
-    init(productId: String, serviceProvider: ProductServiceRepository.Type) {
+    init(productId: String, serviceProvider: ProductServiceRepository.Type, logger: MLAnalyticsProtocol.Type) {
         self.productId = productId
         self.serviceProvider = serviceProvider
+        self.logger = logger
     }
     
     func downloadProductDetail() {
@@ -80,12 +82,12 @@ class ProductDetailPresenter: ObservableObject {
         guard let pictures = product?.pictures else {
             return
         }
-        serviceProvider.downloadProductPictures(pictures: pictures) { response in
+        serviceProvider.downloadProductPictures(pictures: pictures) { [weak self] response in
             switch response {
             case .success(let images):
-                self.productImages = images
+                self?.productImages = images
             case .failure(let error):
-                print("falló")
+                self?.logger.log(message: "error: \(error)", type: .error)
             }
         }
     }
