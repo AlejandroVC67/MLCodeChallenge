@@ -33,7 +33,7 @@ struct ProductDetailView: View {
                     ProductDetailGallery(images: presenter.productImages)
                         .frame(height: Constants.ProductDetailGallery.height)
                     MLTitleText(text: presenter.getProductName())
-                        .lineLimit(0)
+                        .lineLimit(Int.max)
                 }
                 ProductDetailItemView(text: presenter.getProductCondition())
                 ProductDetailItemView(text: presenter.getProductQuantity())

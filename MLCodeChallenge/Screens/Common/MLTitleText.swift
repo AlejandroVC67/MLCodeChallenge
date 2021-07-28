@@ -21,6 +21,8 @@ struct MLTitleText: View {
             .bold()
             .foregroundColor(Constants.color)
             .font(.title)
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
     }
 }
 
