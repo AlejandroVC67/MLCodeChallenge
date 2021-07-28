@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Category: Codable {
+struct Category: Codable, Equatable {
     let id: String
     let name: String
     var picture: String?

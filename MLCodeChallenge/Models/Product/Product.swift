@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product: Codable {
+struct Product: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case id, title, price, condition, thumbnail
         case currencyID = "currency_id"

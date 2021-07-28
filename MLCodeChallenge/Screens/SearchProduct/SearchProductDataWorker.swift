@@ -23,7 +23,7 @@ final class SearchProductDataWorker: NSObject {
     }
     
     // MARK: - Variables
-    private var categories: [Category] = []
+    private(set) var categories: [Category] = []
     private var storedCategories: [Category] = []
     weak var delegate: SearchProductDataWorkerDelegate?
     
