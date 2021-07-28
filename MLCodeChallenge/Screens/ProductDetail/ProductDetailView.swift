@@ -19,19 +19,24 @@ struct ProductDetailView: View {
         static let caracteristicas = "Caracteristicas"
     }
     
-    var presenter: ProductDetailPresenter
+    @ObservedObject private var presenter: ProductDetailPresenter
+    
+    init(presenter: ProductDetailPresenter) {
+        self.presenter = presenter
+        self.presenter.downloadProductDetail()
+    }
     
     var body: some View {
         ScrollView {
-            Constants.backgroundColor.edgesIgnoringSafeArea(.all)
             VStack {
-                VStack {                    ProductDetailGallery(images: [])
+                VStack {
+                    ProductDetailGallery(images: presenter.productImages)
                         .frame(height: Constants.ProductDetailGallery.height)
-                    MLTitleText(text: presenter.product.title)
+                    MLTitleText(text: presenter.getProductName())
                 }
-                ProductDetailItemView(text: "Condition: \(presenter.product.condition)")
-                ProductDetailItemView(text: "price: \(presenter.product.price)")
-                ProductDetailItemView(text: "Quantity: \(String(describing: presenter.product.availableQuantity))")
+                ProductDetailItemView(text: presenter.getProductCondition())
+                ProductDetailItemView(text: presenter.getProductQuantity())
+                ProductDetailItemView(text: presenter.getProductPrice())
                 MLTitleText(text: Constants.caracteristicas)
                 List {
                     Text("hola").foregroundColor(.blue)
