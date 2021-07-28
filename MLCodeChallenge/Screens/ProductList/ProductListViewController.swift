@@ -134,7 +134,8 @@ extension ProductListViewController: ProductListWorkerDelegate {
     }
     
     func checkDetail(of productId: String) {
-        let presenter = ProductDetailPresenter(productId: productId, serviceProvider: ProductServiceFacade.self)
+        let provider = MLAnalyticsFactory.getLogger(provider: .native)
+        let presenter = ProductDetailPresenter(productId: productId, serviceProvider: ProductServiceFacade.self, logger: provider)
         let vc = UIHostingController(rootView: ProductDetailView(presenter: presenter))
         navigationController?.pushViewController(vc, animated: true)
     }
