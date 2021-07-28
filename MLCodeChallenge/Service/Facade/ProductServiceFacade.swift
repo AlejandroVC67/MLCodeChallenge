@@ -8,7 +8,8 @@
 
 import Foundation
 
-typealias ProductServiceResponse = (Result<Product, ServiceError>) -> Void
+typealias ProductServiceResponse = (Result<ProductDetail, ServiceError>) -> Void
+typealias ItemsServiceResponse = (Result<Items, ServiceError>) -> Void
 
 protocol ProductServiceRepository {
     static func searchItem(query: String, completion: @escaping ItemsServiceResponse)
@@ -59,7 +60,7 @@ struct ProductServiceFacade: ProductServiceRepository, ServiceRepository {
             return
         }
         
-        execute(request: request) { (response: Result<Product, ServiceError>) in
+        execute(request: request) { (response: Result<ProductDetail, ServiceError>) in
             switch response {
             case .success(let product):
                 completion(.success(product))
