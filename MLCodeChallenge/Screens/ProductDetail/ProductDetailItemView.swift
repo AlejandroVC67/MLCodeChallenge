@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProductDetailItemView: View {
     private enum Constants {
-        static let color = Color(.mainContent ?? .darkText)
+        static let color: Color = .secundaryContent
     }
     
     var text: String
@@ -19,8 +19,10 @@ struct ProductDetailItemView: View {
         VStack {
             HStack {
                 Text(text)
-                    .foregroundColor(Constants.color).padding(.leading)
+                    .foregroundColor(Constants.color)
+                    .padding(.leading)
                     .padding(.top, 20)
+                    .lineLimit(Int.max)
                 Spacer()
             }
             Divider()

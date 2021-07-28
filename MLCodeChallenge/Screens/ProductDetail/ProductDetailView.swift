@@ -10,13 +10,13 @@ import SwiftUI
 
 struct ProductDetailView: View {
     private enum Constants {
-        static let backgroundColor = Color(.background ?? .blue)
+        static let backgroundColor: Color = .background
         
         enum ProductDetailGallery {
             static let height: CGFloat = 250
         }
         
-        static let caracteristicas = "Caracteristicas"
+        static let attributesTitle = "productdetail.attributes.title".localized
     }
     
     @ObservedObject private var presenter: ProductDetailPresenter
@@ -38,21 +38,19 @@ struct ProductDetailView: View {
                 ProductDetailItemView(text: presenter.getProductCondition())
                 ProductDetailItemView(text: presenter.getProductQuantity())
                 ProductDetailItemView(text: presenter.getProductPrice())
-                MLTitleText(text: Constants.caracteristicas)
+                MLTitleText(text: Constants.attributesTitle)
                 ForEach(presenter.getProductAttributes(), id: \.self) { attribute in
-                    VStack {
-                        Text(attribute.name)
-                        Text(attribute.valueName ?? "")
-                    }
+                    let valueName = attribute.valueName ?? ""
+                    ProductDetailItemView(text: attribute.name + ": " + valueName)
                 }
-            }
+            }.accentColor(.background)
         }
     }
 }
 
 struct ProductDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
-        let presenter = ProductDetailPresenter(productId: "", serviceProvider: ProductServiceFacade.self)
+        let presenter = ProductDetailPresenter(productId: "MLA775138148", serviceProvider: ProductServiceFacade.self)
         ProductDetailView(presenter: presenter)
     }
 }

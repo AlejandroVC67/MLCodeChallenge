@@ -39,6 +39,7 @@
 		BC45B46D26A924DD0030B0B4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B46C26A924DD0030B0B4 /* StringExtension.swift */; };
 		BC45B46F26A925070030B0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC45B46E26A925070030B0B4 /* Localizable.strings */; };
 		BC45B47126A92E8B0030B0B4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45B47026A92E8B0030B0B4 /* CategoryTableViewCell.swift */; };
+		BC6F925C26B19B7C00E9D2E5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */; };
 		BCD7104D26AA37D700EEB0B8 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7104C26AA37D700EEB0B8 /* UITableViewCellExtension.swift */; };
 		BCD7104F26AA387300EEB0B8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7104E26AA387300EEB0B8 /* UIImageViewExtension.swift */; };
 		BCD7105326AB167000EEB0B8 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7105226AB167000EEB0B8 /* ProductListViewController.swift */; };
@@ -100,6 +101,7 @@
 		BC45B46C26A924DD0030B0B4 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BC45B46E26A925070030B0B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC45B47026A92E8B0030B0B4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		BCD7104C26AA37D700EEB0B8 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		BCD7104E26AA387300EEB0B8 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		BCD7105226AB167000EEB0B8 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				BC45B46C26A924DD0030B0B4 /* StringExtension.swift */,
 				BCD7104C26AA37D700EEB0B8 /* UITableViewCellExtension.swift */,
 				BCD7104E26AA387300EEB0B8 /* UIImageViewExtension.swift */,
+				BC6F925B26B19B7C00E9D2E5 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				BC34D75726B0F32800B3A0B2 /* CategoryServiceFacade.swift in Sources */,
 				BC45B41526A613700030B0B4 /* SearchProductViewController.swift in Sources */,
 				BCD7105826AB1C7F00EEB0B8 /* MLAnalyticsFactory.swift in Sources */,
+				BC6F925C26B19B7C00E9D2E5 /* ColorExtension.swift in Sources */,
 				BC34D74B26B0773200B3A0B2 /* MLTitleText.swift in Sources */,
 				BC45B46426A897E50030B0B4 /* SearchProductPresenter.swift in Sources */,
 				BCD7106326AB229800EEB0B8 /* ProductListPresenter.swift in Sources */,
