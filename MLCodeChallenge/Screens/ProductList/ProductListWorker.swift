@@ -25,7 +25,7 @@ final class ProductListWorker: NSObject {
     }
     
     // MARK: - Variables
-    private var products: [Product] = []
+    private(set) var products: [Product] = []
     private let storedProducts: [Product]
     weak var delegate: ProductListWorkerDelegate?
     
