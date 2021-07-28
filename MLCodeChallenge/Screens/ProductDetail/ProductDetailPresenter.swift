@@ -68,7 +68,15 @@ class ProductDetailPresenter: ObservableObject {
         return String(format: "productlistviewcontroller.productlist.cell.condition".localized, condition)
     }
     
-    func getProductImages() {
+    func getProductAttributes() -> [Attribute] {
+        guard let attributes = product?.attributes else {
+            return []
+        }
+        
+        return attributes
+    }
+    
+    private func getProductImages() {
         guard let pictures = product?.pictures else {
             return
         }
