@@ -1,5 +1,5 @@
 //
-//  ProductDetailViewController.swift
+//  MLAsyncImage.swift
 //  MLCodeChallenge
 //
 //  Created by Alejandro Villa Cardenas
@@ -8,14 +8,15 @@
 
 import SwiftUI
 
-struct ProductDetailViewController: View {
+struct MLAsyncImage: View {
+    
     var body: some View {
-        Text("Hello World")
+        Text("")
     }
 }
 
-struct ProductDetailViewController_Previews: PreviewProvider {
+struct MLAsyncImage_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailViewController()
+        MLAsyncImage()
     }
 }
