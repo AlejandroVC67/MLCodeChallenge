@@ -7,7 +7,7 @@
 */
 
 // MARK: - Empty View
-emptyview.errorlabel.text = "No encontramos esa categoría en este momento :(";
+emptyview.errorlabel.text = "No encontramos lo que buscas en este momento :(";
 
 // MARK: - SearchProductViewController
 searchproductviewcontroller.navbar.title = "Busca Productos";
