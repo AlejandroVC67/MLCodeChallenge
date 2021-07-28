@@ -22,7 +22,7 @@ final class SearchProductPresenter: NSObject {
     
     // MARK: - Internal functions
     func searchProduct(query: String) {
-        ServiceFacade.searchItem(query: query) { [weak self] response in
+        ProductServiceFacade.searchItem(query: query) { [weak self] response in
             switch response {
             case .success(let products):
                 DispatchQueue.main.async {
@@ -35,7 +35,7 @@ final class SearchProductPresenter: NSObject {
     }
     
     func loadCategories() {
-        ServiceFacade.categoriesSearch { [weak self] response in
+        CategoryServiceFacade.categoriesSearch { [weak self] response in
             switch response {
             case .success(let categories):
                 self?.delegate?.reloadTable(categories: categories)
@@ -46,7 +46,7 @@ final class SearchProductPresenter: NSObject {
     }
     
     func searchProduct(by category: Category) {
-        ServiceFacade.searchProducts(by: category.id) { [weak self] response in
+        ProductServiceFacade.searchProducts(by: category.id) { [weak self] response in
             switch response {
             case .success(let products):
                 DispatchQueue.main.async {

@@ -1,5 +1,5 @@
 //
-//  ServiceFacade.swift
+//  CategoryServiceFacade.swift
 //  MLCodeChallenge
 //
 //  Created by Alejandro Villa Cardenas
@@ -8,26 +8,15 @@
 
 import Foundation
 
-struct ServiceFacade: ServiceRepository {
-    
-    static func searchItem(query: String, completion: @escaping ItemsServiceResponse) {
-        
-        guard let request = getRequest(httpMethod: .get, searchType: .product(query)) else {
-            completion(.failure(.badRequest))
-            return
-        }
-        
-        execute(request: request) { (response: Result<Items, ServiceError>) in
-            switch response {
-            case .success(let items):
-                items.results.isEmpty ?
-                    completion(.failure(.emptyResponse)) :
-                    completion(.success(items))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
+typealias CategoriesServiceResponse = (Result<[Category], ServiceError>) -> Void
+
+
+protocol CategoryServiceRepository {
+    static func categoriesSearch(completion: @escaping CategoriesServiceResponse)
+    static func searchCategory(id: String, completion: @escaping (Result<Category, ServiceError>) -> Void)
+}
+
+struct CategoryServiceFacade: CategoryServiceRepository, ServiceRepository {
     
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse) {
         let dispatchGroup = DispatchGroup()
@@ -62,22 +51,6 @@ struct ServiceFacade: ServiceRepository {
         }
     }
     
-    static func searchProducts(by categoryId: String, completion: @escaping ItemsServiceResponse) {
-        guard let request = getRequest(httpMethod: .get, searchType: .categoryProduct(categoryId)) else {
-            completion(.failure(.badRequest))
-            return
-        }
-        
-        execute(request: request) { (response: Result<Items, ServiceError>) in
-            switch response {
-            case .success(let items):
-                completion(.success(items))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
     static func searchCategory(id: String, completion: @escaping (Result<Category, ServiceError>) -> Void) {
         guard let request = getRequest(httpMethod: .get, searchType: .category(id)) else {
             completion(.failure(.badRequest))
@@ -92,10 +65,5 @@ struct ServiceFacade: ServiceRepository {
                 completion(.failure(error))
             }
         }
-    }
-    private static func getRequest(httpMethod: HTTPMethods, searchType: SearchType) -> URLRequest? {
-        ServiceRequestBuilder.configureURL(searchType: searchType)
-        ServiceRequestBuilder.configure(httpMethod: .get)
-        return ServiceRequestBuilder.build()
     }
 }

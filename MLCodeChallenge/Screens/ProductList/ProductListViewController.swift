@@ -107,8 +107,8 @@ extension ProductListViewController: ProductListDelegate {
 //MARK: - ProductListWorkerDelegate
 extension ProductListViewController: ProductListWorkerDelegate {
     func checkDetail(of productId: String) {
-        
-        let vc = UIHostingController(rootView: ProductDetailViewController())
+        let presenter = ProductDetailPresenter(productId: productId, serviceProvider: ProductServiceFacade.self)
+        let vc = UIHostingController(rootView: ProductDetailView(presenter: presenter))
         navigationController?.pushViewController(vc, animated: true)
     }
 }
