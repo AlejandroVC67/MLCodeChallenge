@@ -17,6 +17,7 @@ enum SearchType {
     case categories
     case categoryProduct(String)
     case productDetail(String)
+    case productImage(String)
     
     var path: String {
         switch self {
@@ -30,6 +31,8 @@ enum SearchType {
             return String(format: "https://api.mercadolibre.com/sites/MLA/search?category=%@", categoryId)
         case .productDetail(let productId):
             return String(format: "https://api.mercadolibre.com/items/%@", productId)
+        case .productImage(let path):
+            return path
         }
     }
 }
