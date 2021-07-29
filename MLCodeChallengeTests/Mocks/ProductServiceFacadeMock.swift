@@ -15,6 +15,8 @@ class ProductServiceFacadeMock: ProductServiceRepository {
     static var shouldSearchProductDetailFail: Bool = false
     static var shouldDownloadProductPicturesFail: Bool = false
     
+    static var searchProductDetailCalled: Bool = false
+    
     static func searchItem(query: String, completion: @escaping ItemsServiceResponse) {
         shouldSearchItemFail ?
             completion(.failure(.badRequest)) :
@@ -26,8 +28,8 @@ class ProductServiceFacadeMock: ProductServiceRepository {
     }
     
     static func searchProductDetail(id: String, completion: @escaping ProductServiceResponse) {
-        let productDetail = ProductDetail(id: "", title: "Mock", price: 10, currencyID: "ARG", availableQuantity: 1, condition: "Used", thumbnail: "", attributes: [], pictures: [])
-        shouldSearchProductDetailFail ? completion(.failure(.badRequest)) : completion(.success(productDetail))
+        searchProductDetailCalled = true
+        shouldSearchProductDetailFail ? completion(.failure(.badRequest)) : completion(.success(getProductDetail()))
     }
     
     static func downloadProductPictures(pictures: [Picture], completion: @escaping ProductImagesResponse) {
@@ -42,5 +44,11 @@ class ProductServiceFacadeMock: ProductServiceRepository {
         let results = Product(id: "0", title: "Product Mock", price: 100, currencyID: "COP", availableQuantity: 1, condition: "New", thumbnail: "")
         let items = Items(siteID: "", results: [results])
         return items
+    }
+    
+    static func getProductDetail() -> ProductDetail {
+        let attributes = Attribute(name: "mock name", valueName: "mock value")
+        let productDetail = ProductDetail(id: "", title: "Mock", price: 10, currencyID: "ARG", availableQuantity: 1, condition: "Used", thumbnail: "", attributes: [attributes], pictures: [])
+        return productDetail
     }
 }

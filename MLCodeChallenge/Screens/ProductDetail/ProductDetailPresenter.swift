@@ -28,15 +28,16 @@ class ProductDetailPresenter: ObservableObject {
         self.logger = logger
     }
     
-    func downloadProductDetail() {
+    func downloadProductDetail(completion: (() -> Void)? = nil) {
         serviceProvider.searchProductDetail(id: productId) { [weak self] response in
             switch response {
             case .success(let product):
                 DispatchQueue.main.async {
                     self?.product = product
+                    completion?()
                 }
             case .failure(let error):
-                print(error)
+                self?.logger.log(message: "error: \(error)", type: .error)
             }
         }
     }

@@ -25,3 +25,9 @@ struct ProductDetail: Codable {
     let attributes: [Attribute]
     let pictures: [Picture]
 }
+
+extension ProductDetail: Equatable {
+    static func == (lhs: ProductDetail, rhs: ProductDetail) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
