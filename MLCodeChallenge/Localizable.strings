@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  MLCodeChallenge
+
+  Created by Alejandro Villa Cardenas
+  Copyright © 2021  . All rights reserved.
+*/
+
+// MARK: - Empty View
+emptyview.errorlabel.text = "No encontramos lo que buscas en este momento :(";
+
+// MARK: - SearchProductViewController
+searchproductviewcontroller.navbar.title = "Busca Productos";
+searchproductviewcontroller.table.section.title = "Escoge alguna de nuestras categorías";
+searchproductviewcontroller.searchbar.placeholder = "¡Busca productos o filtra las categorías!";
+
+// MARK: - ProductListViewController
+productlistviewcontroller.searchbar.placeholder = "Filtra tú producto por nombre";
+productlistviewcontroller.productlist.cell.price = "Price: %@ %.2f";
+productlistviewcontroller.productlist.cell.quantity = "Quantity: %d";
+productlistviewcontroller.productlist.cell.condition = "Condition: %@";
+
+// MARK: - ProductDetail
+productdetail.attributes.title = "Características";
+
