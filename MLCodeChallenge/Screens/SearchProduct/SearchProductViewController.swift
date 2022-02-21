@@ -169,3 +169,65 @@ extension SearchProductViewController: SearchProductDataWorkerDelegate {
         NSLayoutConstraint.activate(constraints)
     }
 }
+
+extension CategoryServiceClient {
+    static var badURL = Self(
+        categoriesSearch: { $0(.failure(.badUrl)) },
+        searchCategory: { _, _ in }
+    )
+    static func error(_ error: ServiceError) -> Self {
+        Self(
+            categoriesSearch: { $0(.failure(error)) },
+            searchCategory: { _, _ in }
+        )
+    }
+    static func success(_ categories: Category...) -> Self {
+        Self(
+            categoriesSearch: { $0(.success(categories)) },
+            searchCategory: { _, _ in }
+        )
+    }
+}
+
+struct SearchViewController_Previews: PreviewProvider {
+    static var previews: some View {
+//        environment.categoriesSearchClient = .error(.emptyResponse)
+        environment.categoriesSearchClient = .success(
+            .init(id: "0", name: "Tractores", picture: "https://www.deere.com//assets/images/Tractor%206110e/tractor_6110E_campo4_large_81c750cb461dc7e9617daa06490faff0c2b72b9e.jpg"),
+            .init(id: "1", name: "Nueva 2", picture: nil),
+            .init(id: "2", name: "Nueva 3", picture: nil)
+        )
+
+        return UIViewControllerToSwiftUI { _ in
+            SearchProductViewController.init(
+                presenter: .init(productServiceProvider: ProductServiceFacade.self),
+                analyticsLogger: MLAnalyticsFactory.getLogger(provider: .native)
+            )
+        }
+    }
+}
+
+import SwiftUI
+public struct UIViewControllerToSwiftUI: UIViewControllerRepresentable {
+
+    public typealias UIViewControllerType = UIViewController
+
+    let makeUIViewControllerHandler: (Context) -> UIViewControllerType
+    let updateUIViewControllerHandler: ((UIViewController, Context) -> Void)?
+
+    public init(
+        makeUIViewControllerHandler: @escaping (Context) -> UIViewControllerType,
+        updateUIViewControllerHandler: ((UIViewController, Context) -> Void)? = nil
+    ) {
+        self.makeUIViewControllerHandler = makeUIViewControllerHandler
+        self.updateUIViewControllerHandler = updateUIViewControllerHandler
+    }
+
+    public func makeUIViewController(context: Context) -> UIViewController {
+        makeUIViewControllerHandler(context)
+    }
+
+    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        updateUIViewControllerHandler?(uiViewController, context)
+    }
+}

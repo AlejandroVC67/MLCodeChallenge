@@ -55,7 +55,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 private extension SceneDelegate {
     func setupRootViewController() -> SearchProductViewController {
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacade.self, categoryServiceProvider: CategoryServiceFacade.self)
+        let presenter = SearchProductPresenter(
+            productServiceProvider: ProductServiceFacade.self
+        )
         let analyticsLogger = MLAnalyticsFactory.getLogger(provider: .native)
         let searchProductViewController = SearchProductViewController(presenter: presenter, analyticsLogger: analyticsLogger)
         return searchProductViewController

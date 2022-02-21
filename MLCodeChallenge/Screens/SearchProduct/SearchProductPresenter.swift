@@ -21,12 +21,15 @@ final class SearchProductPresenter: NSObject {
     weak var delegate: SearchProductDelegate?
     
     private let productServiceProvider: ProductServiceRepository.Type
-    private let categoryServiceProvider: CategoryServiceRepository.Type
+    //private let categoryServiceProvider: CategoryServiceRepository.Type
     
     // MARK: - Init
-    init(productServiceProvider: ProductServiceRepository.Type, categoryServiceProvider: CategoryServiceRepository.Type) {
+    init(
+        productServiceProvider: ProductServiceRepository.Type
+        //categoryServiceProvider: CategoryServiceRepository.Type
+    ) {
         self.productServiceProvider = productServiceProvider
-        self.categoryServiceProvider = categoryServiceProvider
+        //self.categoryServiceProvider = categoryServiceProvider
     }
     
     // MARK: - Internal functions
@@ -44,7 +47,7 @@ final class SearchProductPresenter: NSObject {
     }
     
     func loadCategories() {
-        categoryServiceProvider.categoriesSearch { [weak self] response in
+        environment.categoriesSearchClient.categoriesSearch { [weak self] response in
             switch response {
             case .success(let categories):
                 self?.delegate?.reloadTable(categories: categories)

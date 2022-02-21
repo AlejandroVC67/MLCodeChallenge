@@ -9,6 +9,13 @@
 import XCTest
 @testable import MLCodeChallenge
 
+extension CategoryServiceClient {
+    static var failing = Self(
+        categoriesSearch: {_ in fatalError()},
+        searchCategory: {_,_ in fatalError()}
+    )
+}
+
 class SearchProductPresenterTests: XCTestCase {
     
     let searchProductExpectation = XCTestExpectation(description: "items should match")
@@ -22,9 +29,15 @@ class SearchProductPresenterTests: XCTestCase {
         ProductServiceFacadeMock.shouldSearchProductFail = false
     }
     
+    override func setUp() {
+        environment.categoriesSearchClient = .failing
+    }
+    
     func testSearchProductByQuery_givenProductServiceProviderAndSearchShouldWork_shouldReturnCorrectItem() {
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
+        let presenter = SearchProductPresenter(
+            productServiceProvider: ProductServiceFacadeMock.self
+        )
         presenter.delegate = self
         
         // When
@@ -36,7 +49,7 @@ class SearchProductPresenterTests: XCTestCase {
     
     func testSearchProductByQuery_givenProductServiceProviderAndSearchShouldFail_shouldReturnError() {
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self)
         presenter.delegate = self
         ProductServiceFacadeMock.shouldSearchItemFail = true
         
@@ -44,37 +57,66 @@ class SearchProductPresenterTests: XCTestCase {
         presenter.searchProduct(query: "")
         
         // Then
+        // Jaime estás? D: qué pasó 
         wait(for: [searchProductExpectation], timeout: 1)
     }
     
     func testLoadCategories_givenCategoryServiceProviderAndSearchShouldWork_shouldReturnAllCategoriesCorrectly() {
+        class Delegate: SearchProductDelegate {
+            var categories = [MLCodeChallenge.Category]()
+            
+            func show(items: Items) {}
+            func reloadTable(categories: [MLCodeChallenge.Category]) {
+                self.categories = categories
+            }
+            func handleError(error: String) { }
+            func filterCategories(query: String) {}
+        }
+        let delegate = Delegate()
+        
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
-        presenter.delegate = self
+        let expectedCategories = [MLCodeChallenge.Category.init(id: "tests", name: "", picture: nil)]
+        environment.categoriesSearchClient.categoriesSearch = {
+            $0(.success(expectedCategories))
+        }
+        
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self)
+        presenter.delegate = delegate
         
         // When
         presenter.loadCategories()
         
         // Then
-        wait(for: [loadCategoriesExpectation], timeout: 1)
+        XCTAssertEqual(delegate.categories, expectedCategories)
     }
     
     func testLoadCategories_givenCategoryServiceProviderAndSearchShouldFail_shouldReturnError() {
+        class Delegate: SearchProductDelegate {
+            var error = String()
+            
+            func show(items: Items) {}
+            func reloadTable(categories: [MLCodeChallenge.Category]) {}
+            func handleError(error: String) { self.error = error }
+            func filterCategories(query: String) {}
+        }
+        let delegate = Delegate()
+        
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
-        presenter.delegate = self
-        CategoryServiceFacadeMock.shouldCategoriesSearchFail = true
+        environment.categoriesSearchClient = .error(.badRequest)
+
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self)
+        presenter.delegate = delegate
         
         // When
         presenter.loadCategories()
         
         // Then
-        wait(for: [loadCategoriesExpectation], timeout: 1)
+        XCTAssertEqual(delegate.error, ServiceError.badRequest.errorDescription)
     }
     
     func testSearchProductByCategory_givenProductServiceProviderAndSearchShouldWork_shouldReturnItem() {
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self)
         presenter.delegate = self
         
         // When
@@ -86,7 +128,7 @@ class SearchProductPresenterTests: XCTestCase {
     
     func testSearchProductByCategory_givenProductServiceProviderAndSearchShouldFail_shouldReturnError() {
         // Given
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self, categoryServiceProvider: CategoryServiceFacadeMock.self)
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacadeMock.self)
         presenter.delegate = self
         ProductServiceFacadeMock.shouldSearchProductFail = true
         
