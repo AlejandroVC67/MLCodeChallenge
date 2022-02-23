@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MLLogo.png",
+      "filename" : "mercadolibre.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MLLogo-1.png",
+      "filename" : "mercadolibre-1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MLLogo-2.png",
+      "filename" : "mercadolibre-2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }
