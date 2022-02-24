@@ -133,9 +133,14 @@ extension ProductListViewController: ProductListWorkerDelegate {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func checkDetail(of productId: String) {
+    func checkDetail(of product: Product) {
         let provider = MLAnalyticsFactory.getLogger(provider: .native)
-        let presenter = ProductDetailPresenter(productId: productId, serviceProvider: ProductServiceFacade.self, logger: provider)
+        let presenter = ProductDetailPresenter(
+            productId: product.id,
+            serviceProvider: ProductServiceFacade.self,
+            logger: provider,
+            productThumnail: getCachedImage(from: product.thumbnail) ?? .init(named: "categoryPlaceholder")!
+        )
         let vc = UIHostingController(rootView: ProductDetailView(presenter: presenter))
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -9,24 +9,35 @@
 import SwiftUI
 
 struct ProductDetailGallery: View {
+
     var images: [UIImage] = []
     
-    var body: some View {
-        GeometryReader { proxy in
-            TabView {
-                ForEach(images, id: \.self) { image in
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                }
-            }.tabViewStyle(PageTabViewStyle())
-            .frame(width: proxy.size.width)
-        }
+    init(images: [UIImage]) {
+        let images = images.isEmpty
+        ? [.init(named: "categoryPlaceholder")!]
+        : images
+        self.images = images
     }
+    
+    var body: some View {
+        TabView {
+            ForEach(images, id: \.self) {
+                Image(uiImage: $0)
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
+    }
+
 }
 
 struct ProductDetailGallery_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailGallery()
+        ProductDetailGallery.init(images: [
+            .init(systemName: "circle")!,
+            .init(systemName: "pencil")!
+        ])
     }
 }

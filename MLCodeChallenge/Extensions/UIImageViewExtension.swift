@@ -25,15 +25,38 @@ extension UIImageView {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethods.get.rawValue
         
-        let task = URLSession.shared.dataTask(with: request) { (data, _, _) in
+        if let data = cache.cachedResponse(for: request)?.data {
+            let image = UIImage(data: data)
+            self.image = image
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, _) in
             guard let data = data,
                   let image = UIImage(data: data) else {
                 return
             }
             DispatchQueue.main.async {
+                let cachedData = CachedURLResponse(response: response!, data: data)
+                cache.storeCachedResponse(cachedData, for: request)
                 self.image = image
             }
         }
         task.resume()
     }
+}
+
+var cache: URLCache = .init()
+
+func getCachedImage(from path: String) -> UIImage? {
+    guard let url = URL(string: path) else {
+        return nil
+    }
+    var request = URLRequest(url: url)
+    request.httpMethod = HTTPMethods.get.rawValue
+    
+    if let data = cache.cachedResponse(for: request)?.data {
+        return UIImage(data: data)
+    }
+    return nil
 }

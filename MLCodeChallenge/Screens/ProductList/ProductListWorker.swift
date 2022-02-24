@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - ProductListWorkerDelegate
 protocol ProductListWorkerDelegate: AnyObject {
-    func checkDetail(of productId: String)
+    func checkDetail(of product: Product)
     func showEmptyView()
     func removeEmptyView()
 }
@@ -74,6 +74,6 @@ extension ProductListWorker: UITableViewDataSource {
 extension ProductListWorker: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]
-        delegate?.checkDetail(of: product.id)
+        delegate?.checkDetail(of: product)
     }
 }

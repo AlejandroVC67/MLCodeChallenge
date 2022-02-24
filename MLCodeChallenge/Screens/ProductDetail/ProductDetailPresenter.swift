@@ -22,10 +22,11 @@ class ProductDetailPresenter: ObservableObject {
     private let serviceProvider: ProductServiceRepository.Type
     private var logger: MLAnalyticsProtocol.Type
     
-    init(productId: String, serviceProvider: ProductServiceRepository.Type, logger: MLAnalyticsProtocol.Type) {
+    init(productId: String, serviceProvider: ProductServiceRepository.Type, logger: MLAnalyticsProtocol.Type, productThumnail: UIImage) {
         self.productId = productId
         self.serviceProvider = serviceProvider
         self.logger = logger
+        self.productImages = [productThumnail]
     }
     
     func downloadProductDetail(completion: (() -> Void)? = nil) {
