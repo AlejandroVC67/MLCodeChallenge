@@ -12,16 +12,15 @@ struct ProductDetailGallery: View {
     var images: [UIImage] = []
     
     var body: some View {
-        GeometryReader { proxy in
-            TabView {
-                ForEach(images, id: \.self) { image in
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                }
-            }.tabViewStyle(PageTabViewStyle())
-            .frame(width: proxy.size.width)
+        TabView {
+            ForEach(images, id: \.self) { image in
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+            }
         }
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 

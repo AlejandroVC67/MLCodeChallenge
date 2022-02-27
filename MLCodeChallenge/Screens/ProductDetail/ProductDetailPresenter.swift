@@ -17,7 +17,7 @@ class ProductDetailPresenter: ObservableObject {
             self.getProductImages()
         }
     }
-    @Published private(set) var productImages: [UIImage] = []
+    @Published private(set) var productImages: [UIImage] = [UIImage(named: "categoryPlaceholder")!]
     
     private let serviceProvider: ProductServiceRepository.Type
     private var logger: MLAnalyticsProtocol.Type
