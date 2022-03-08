@@ -169,3 +169,42 @@ extension SearchProductViewController: SearchProductDataWorkerDelegate {
         NSLayoutConstraint.activate(constraints)
     }
 }
+
+//struct SearchViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+////        environment.categoriesSearchClient = .error(.emptyResponse)
+//
+//        return UIViewControllerToSwiftUI { _ in
+//            SearchProductViewController.init(
+//                presenter: .init(productServiceProvider: ProductServiceFacade.self),
+//                analyticsLogger: MLAnalyticsFactory.getLogger(provider: .native)
+//            )
+//        }
+//    }
+//}
+
+
+import SwiftUI
+public struct UIViewControllerToSwiftUI: UIViewControllerRepresentable {
+
+    public typealias UIViewControllerType = UIViewController
+
+    let makeUIViewControllerHandler: (Context) -> UIViewControllerType
+    let updateUIViewControllerHandler: ((UIViewController, Context) -> Void)?
+
+    public init(
+        makeUIViewControllerHandler: @escaping (Context) -> UIViewControllerType,
+        updateUIViewControllerHandler: ((UIViewController, Context) -> Void)? = nil
+    ) {
+        self.makeUIViewControllerHandler = makeUIViewControllerHandler
+        self.updateUIViewControllerHandler = updateUIViewControllerHandler
+    }
+
+    public func makeUIViewController(context: Context) -> UIViewController {
+        makeUIViewControllerHandler(context)
+    }
+
+    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        updateUIViewControllerHandler?(uiViewController, context)
+    }
+}

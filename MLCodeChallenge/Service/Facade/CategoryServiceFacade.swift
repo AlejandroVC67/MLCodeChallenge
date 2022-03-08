@@ -13,7 +13,6 @@ typealias CategoriesServiceResponse = (Result<[Category], ServiceError>) -> Void
 
 protocol CategoryServiceRepository {
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse)
-    static func searchCategory(id: String, completion: @escaping (Result<Category, ServiceError>) -> Void)
 }
 
 struct CategoryServiceFacade: CategoryServiceRepository, ServiceRepository {
