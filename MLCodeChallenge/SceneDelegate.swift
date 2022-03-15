@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 private extension SceneDelegate {
     func setupRootViewController() -> SearchProductViewController {
-        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacade.self, categoryServiceProvider: CategoryServiceFacade.self)
+        let presenter = SearchProductPresenter(productServiceProvider: ProductServiceFacade.self)
         let searchProductViewController = SearchProductViewController(presenter: presenter)
         return searchProductViewController
     }

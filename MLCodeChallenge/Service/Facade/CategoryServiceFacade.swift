@@ -15,6 +15,31 @@ protocol CategoryServiceRepository {
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse)
 }
 
+struct CategoryServiceClient {
+    var categoriesSearch: (_ completion: @escaping CategoriesServiceResponse) -> Void
+}
+
+extension CategoryServiceClient {
+    static var live = Self(
+        categoriesSearch: CategoryServiceFacade.categoriesSearch(completion:)
+    )
+    
+    static var success = Self(
+        categoriesSearch: {
+            let categories: [Category] = [
+                .init(id: "test id", name: "test name", picture: nil),
+                .init(id: "test id", name: "test name 2", picture: nil)
+            ]
+            
+            $0(.success(categories))
+        }
+    )
+    
+    static var failure = Self(
+        categoriesSearch: { $0(.failure(.badUrl)) }
+    )
+}
+
 struct CategoryServiceFacade: CategoryServiceRepository, ServiceRepository {
     
     static func categoriesSearch(completion: @escaping CategoriesServiceResponse) {

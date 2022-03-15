@@ -10,12 +10,14 @@ import Foundation
 
 struct Environment {
     var analyticsClient: AnalyticsClient
+    var categorieServiceClient: CategoryServiceClient
 }
 
 var environment: Environment = .live
 
 extension Environment {
     static var live = Self(
-        analyticsClient: .native
+        analyticsClient: .native,
+        categorieServiceClient: .live
     )
 }

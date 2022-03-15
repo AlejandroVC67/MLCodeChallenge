@@ -168,18 +168,15 @@ extension SearchProductViewController: SearchProductDataWorkerDelegate {
     }
 }
 
-//struct SearchViewController_Previews: PreviewProvider {
-//    static var previews: some View {
-////        environment.categoriesSearchClient = .error(.emptyResponse)
-//
-//        return UIViewControllerToSwiftUI { _ in
-//            SearchProductViewController.init(
-//                presenter: .init(productServiceProvider: ProductServiceFacade.self),
-//                analyticsLogger: MLAnalyticsFactory.getLogger(provider: .native)
-//            )
-//        }
-//    }
-//}
+struct SearchViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        environment.categorieServiceClient = .failure
+
+        return UIViewControllerToSwiftUI { _ in
+            SearchProductViewController(presenter: .init(productServiceProvider: ProductServiceFacade.self))
+        }
+    }
+}
 
 
 import SwiftUI
