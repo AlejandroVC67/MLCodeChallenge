@@ -53,12 +53,10 @@ final class SearchProductViewController: UIViewController {
 
     private let presenter: SearchProductPresenter
     private let tableWorker: SearchProductDataWorker = SearchProductDataWorker()
-    private let logger: MLAnalyticsProtocol.Type
     
     // MARK: - Init
-    init(presenter: SearchProductPresenter, analyticsLogger: MLAnalyticsProtocol.Type) {
+    init(presenter: SearchProductPresenter) {
         self.presenter = presenter
-        self.logger = analyticsLogger
         super.init(nibName: nil, bundle: nil)
         self.presenter.delegate = self
         self.tableWorker.delegate = self
@@ -134,7 +132,7 @@ extension SearchProductViewController: SearchProductDelegate {
     }
     
     func handleError(error: String) {
-        logger.log(message: error, type: .error)
+        environment.analyticsClient.log(error, .error)
     }
 }
 

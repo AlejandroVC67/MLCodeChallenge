@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4733BC927E0EB8E001C3C6E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4733BC827E0EB8E001C3C6E /* Environment.swift */; };
+		B4733BCB27E0EBBE001C3C6E /* AnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4733BCA27E0EBBE001C3C6E /* AnalyticsClient.swift */; };
 		BC09EF0326ADFA3100F44501 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09EF0226ADFA3100F44501 /* ProductDetailView.swift */; };
 		BC34D74926AFC31600B3A0B2 /* ProductDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC34D74826AFC31600B3A0B2 /* ProductDetailItemView.swift */; };
 		BC34D74B26B0773200B3A0B2 /* MLTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC34D74A26B0773200B3A0B2 /* MLTitleText.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B4733BC827E0EB8E001C3C6E /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		B4733BCA27E0EBBE001C3C6E /* AnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClient.swift; sourceTree = "<group>"; };
 		BC09EF0226ADFA3100F44501 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		BC34D74826AFC31600B3A0B2 /* ProductDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailItemView.swift; sourceTree = "<group>"; };
 		BC34D74A26B0773200B3A0B2 /* MLTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTitleText.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				BC45B41B26A6137D0030B0B4 /* LaunchScreen.storyboard */,
 				BC45B41E26A6137D0030B0B4 /* Info.plist */,
 				BC45B46E26A925070030B0B4 /* Localizable.strings */,
+				B4733BC827E0EB8E001C3C6E /* Environment.swift */,
 			);
 			path = MLCodeChallenge;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 			children = (
 				BCD7105D26AB1CE400EEB0B8 /* Common */,
 				BCD7105B26AB1CCF00EEB0B8 /* MLNativeAnalyticsLogger.swift */,
+				B4733BCA27E0EBBE001C3C6E /* AnalyticsClient.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				BCD7105326AB167000EEB0B8 /* ProductListViewController.swift in Sources */,
 				BCD7105626AB19FD00EEB0B8 /* MLAnalyticsProtocol.swift in Sources */,
 				BC34D74D26B077BF00B3A0B2 /* ProductDetailGallery.swift in Sources */,
+				B4733BCB27E0EBBE001C3C6E /* AnalyticsClient.swift in Sources */,
 				BC45B45E26A7C7A40030B0B4 /* SearchType.swift in Sources */,
 				BC34D75926B0F61900B3A0B2 /* Picture.swift in Sources */,
 				BC45B45826A73E770030B0B4 /* ServiceRequestBuilderProtocol.swift in Sources */,
@@ -542,6 +549,7 @@
 				BC34D75426B0F18700B3A0B2 /* ProductServiceFacade.swift in Sources */,
 				BC45B41126A613700030B0B4 /* AppDelegate.swift in Sources */,
 				BC45B44526A734500030B0B4 /* Product.swift in Sources */,
+				B4733BC927E0EB8E001C3C6E /* Environment.swift in Sources */,
 				BC45B46926A91DDC0030B0B4 /* UIViewExtension.swift in Sources */,
 				BCD7105A26AB1CB600EEB0B8 /* AnalyticsProvider.swift in Sources */,
 				BCD7106A26AB4D1B00EEB0B8 /* ProductListTableViewCell.swift in Sources */,
